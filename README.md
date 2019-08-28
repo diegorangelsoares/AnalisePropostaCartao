@@ -2,11 +2,12 @@
 
 [Conductor]: Desafio para processo seletivo
 
-AnalisePropostaCartao API REST + Angular
+AnalisePropostaCartao API REST + Angular + Mysql
 API REST Para manter os dados das propostas de Cartões de Crédito.
 
 Configuração da aplicação:
 
+	Banco Mysql está configurado para a porta 3309 (Pode ser alterado no arquivo do projeto application.properties)
 	Criar uma banco de dados no Mysql com nome de propostas
 	Executar o script contido no projeto BancoProposta.sql (Contém alguns clientes, propostas e usuários cadastrados no banco)
 
@@ -18,11 +19,14 @@ Introdução:
 Descrição: Api Rest que mantém dados de propostas de cartão de crédito para aprovação por usuário auditor com interface em Angular
 
 Principal funcionalidade: 
-Login com autenticação de token
+Login com autenticação de token 
 Cadastro de Cliente
 Cadastro de Propostas
 Alteração dos Status das Propostas
 
+OBSERVAÇÃO IMPORTANTE:
+	1. As funcionalidades de cadastros estão configuradas para permitir apenas com Login.
+	2. Primeiro faz o login com usuário admin e senha 123 já alimentados no banco
 
 API REST desenvolvida em Spring Boot
 						 Mavem
@@ -38,20 +42,9 @@ localhost:8080/swagger-ui.html
 SQL do BancoProposta.sql
 
 /*
-SQLyog Ultimate v9.01 
-MySQL - 5.1.46-community : Database - propostas
 *********************************************************************
 */
 
-
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`propostas` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `propostas`;
