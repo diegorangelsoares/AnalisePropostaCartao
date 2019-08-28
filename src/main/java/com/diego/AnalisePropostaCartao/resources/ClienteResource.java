@@ -27,7 +27,6 @@ import com.diego.AnalisePropostaCartao.repository.ClienteRepository;
 @CrossOrigin(origins="*")
 public class ClienteResource {
 
-			
 		@Autowired
 		private ClienteRepository uRepository;
 		

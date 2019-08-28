@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.AnalisePropostaCartao.model.Cliente;
 import com.diego.AnalisePropostaCartao.service.ClienteService;
 
-
 @RestController
 @RequestMapping ("/admin")
 public class ClienteController {
@@ -38,7 +37,6 @@ public class ClienteController {
 	
 	@RequestMapping(method = RequestMethod.DELETE, value="/clientes/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection< Cliente>> excluirCliente(@PathVariable Integer id) {
-		
 		Cliente clienteEncontrado = clienteService.buscarPorId(id);
 		if (clienteEncontrado == null) {
 			//mensagem de nao encontrato

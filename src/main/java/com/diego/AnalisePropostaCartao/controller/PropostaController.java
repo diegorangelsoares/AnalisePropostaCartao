@@ -37,7 +37,6 @@ public class PropostaController {
 	
 	@RequestMapping(method = RequestMethod.DELETE, value="/Propostas/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection< Proposta>> excluirProposta(@PathVariable Integer id) {
-		
 		Proposta PropostaEncontrado = PropostaService.buscarPorId(id);
 		if (PropostaEncontrado == null) {
 			//mensagem de nao encontrato

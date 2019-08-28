@@ -19,8 +19,6 @@ import com.diego.AnalisePropostaCartao.erro.ResourceNotFoundException;
 import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 
-
-
 /**Classe de tratamentos do usuario
 * @author Diego Rangel
 */

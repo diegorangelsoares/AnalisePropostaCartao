@@ -30,13 +30,13 @@ public class PropostaService {
 	
 	public Proposta buscarPorId(long id) {
 		List<Proposta> Propostas = PropostaRepository.findAll();
-		Proposta cli = null;
+		Proposta pro = null;
 		for (int i = 0; i < Propostas.size(); i++) {
 			if (Propostas.get(i).getId() == id) {
-				cli = Propostas.get(i);
+				pro = Propostas.get(i);
 			}
 		}
-		return cli;
+		return pro;
 	}
 		
 	public Proposta alterar(Proposta Proposta) {

@@ -17,7 +17,7 @@ public class Proposta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private String data;
+	public String data;
 	public String statusProposta;
 	public String statusSPC;
 	public String statusDocumentos;

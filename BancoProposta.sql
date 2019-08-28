@@ -59,7 +59,6 @@ DROP TABLE IF EXISTS `tab_proposta`;
 CREATE TABLE `tab_proposta` (
   `id` bigint(20) NOT NULL,
   `data` varchar(255) DEFAULT NULL,
-  `id_cliente` varchar(255) DEFAULT NULL,
   `id_usuario_analista` varchar(255) DEFAULT NULL,
   `status_documentos` varchar(255) DEFAULT NULL,
   `status_proposta` varchar(255) DEFAULT NULL,
@@ -73,7 +72,7 @@ CREATE TABLE `tab_proposta` (
 
 LOCK TABLES `tab_proposta` WRITE;
 
-insert  into `tab_proposta`(`id`,`data`,`id_cliente`,`id_usuario_analista`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`) values (1,'26/08/19','1','1','negado','negado','negado',1),(2,'26/08/19','1','1','pendente','pendente','pendente',1);
+insert  into `tab_proposta`(`id`,`data`,`id_usuario_analista`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`) values (1,'26/08/19','1','negado','negado','negado',1),(2,'26/08/19','1','pendente','pendente','pendente',1);
 
 UNLOCK TABLES;
 
