@@ -12,6 +12,7 @@ public interface PropostaRepository extends JpaRepository<Proposta, Integer>{
 	//Proposta findByNome(String nome);
 	
 	Proposta findById(long id);
+	
 
 	
 }

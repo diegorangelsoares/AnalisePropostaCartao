@@ -24,8 +24,10 @@ appCliente.controller("propostaController", function ($scope, $http){
 	
 	$scope.salvarPropostas = function (){		
 		if ($scope.frmProposta.$valid){
+			
 			$http({method:'POST', url:'http://localhost:8080/admin/Propostas', data:$scope.proposta})
 			.then(function(response){
+				
 				$scope.propostas.push (response.data);
 				console.log(response.data);
 				console.log(response.status);
@@ -39,7 +41,7 @@ appCliente.controller("propostaController", function ($scope, $http){
 			});
 			
 		}else{
-			window.alert("Dados Inválidos");
+			window.alert("Faltando informações ou preenchimento Inválido");
 		}
 
 	}
@@ -73,6 +75,6 @@ appCliente.controller("propostaController", function ($scope, $http){
 	
 	carregarPropostas();
 	
-	
+
 	
 });

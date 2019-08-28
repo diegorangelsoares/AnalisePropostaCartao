@@ -41,10 +41,6 @@ localhost:8080/swagger-ui.html
 
 SQL do BancoProposta.sql
 
-/*
-*********************************************************************
-*/
-
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`propostas` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `propostas`;
@@ -61,7 +57,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 
-insert  into `hibernate_sequence`(`next_val`) values (7),(7);
+insert  into `hibernate_sequence`(`next_val`) values (31),(31);
 
 UNLOCK TABLES;
 
@@ -81,7 +77,7 @@ CREATE TABLE `tab_cliente` (
 
 LOCK TABLES `tab_cliente` WRITE;
 
-insert  into `tab_cliente`(`id`,`cpf`,`email`,`nome`) values (1,'60825057000','diegorangeljpa@gmail.com','Diego Rangel'),(2,'51101382813','pedro@gmail.com','Pedro Antonio'),(3,'45318947905','junior@gmail.com','Junior Ramalho'),(4,'14440735320','maria@gmail.com','Maria da Conceicao'),(5,'df','df@ds','sdf');
+insert  into `tab_cliente`(`id`,`cpf`,`email`,`nome`) values (1,'60825057000','diegorangeljpa@gmail.com','Diego Rangel'),(2,'51101382813','pedro@gmail.com','Pedro Antonio'),(3,'45318947905','junior@gmail.com','Junior Ramalho'),(4,'14440735320','maria@gmail.com','Maria da Conceicao');
 
 UNLOCK TABLES;
 
@@ -91,22 +87,22 @@ DROP TABLE IF EXISTS `tab_proposta`;
 
 CREATE TABLE `tab_proposta` (
   `id` bigint(20) NOT NULL,
-  `data` varchar(255) DEFAULT NULL,
-  `id_cliente` varchar(255) DEFAULT NULL,
-  `id_usuario_analista` varchar(255) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
   `status_documentos` varchar(255) DEFAULT NULL,
   `status_proposta` varchar(255) DEFAULT NULL,
   `statusspc` varchar(255) DEFAULT NULL,
   `cliente_id` bigint(20) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKgeculiujk1v83ik6dm8ppo03i` (`cliente_id`)
+  KEY `FKgeculiujk1v83ik6dm8ppo03i` (`cliente_id`),
+  KEY `FKqv8nhe3l3k5amuv2ss8lr1p9m` (`usuario_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `tab_proposta` */
 
 LOCK TABLES `tab_proposta` WRITE;
 
-insert  into `tab_proposta`(`id`,`data`,`id_cliente`,`id_usuario_analista`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`) values (1,'26/08/19','1','1','negado','negado','negado',1),(2,'26/08/19','1','1','pendente','pendente','pendente',1);
+insert  into `tab_proposta`(`id`,`data`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`,`usuario_id`) values (30,'2019-08-02 00:00:00','autorizada','pendente','autorizada',1,1),(0,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(8,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(1,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(2,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(3,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(4,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(5,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(6,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(29,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1);
 
 UNLOCK TABLES;
 
@@ -133,4 +129,3 @@ UNLOCK TABLES;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-

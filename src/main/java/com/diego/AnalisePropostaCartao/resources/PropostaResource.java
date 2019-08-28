@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.diego.AnalisePropostaCartao.erro.ResourceNotFoundException;
 import com.diego.AnalisePropostaCartao.model.Proposta;
+import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
+import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 
 /**Classe de tratamentos do Proposta
 * @author Diego Rangel
@@ -29,6 +31,9 @@ public class PropostaResource {
 
 	@Autowired
 	private PropostaRepository uRepository;
+	
+	//@Autowired
+	//private UsuarioRepository usuarioRepository;
 	
 	@GetMapping(path="Propostas")
 	public ResponseEntity<?> listAll(Pageable pageable){
@@ -44,13 +49,16 @@ public class PropostaResource {
 	
 	@PostMapping(path="Propostas")
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
+		/**
 		System.out.println("Chamou save");
 		System.out.println("Proposta para salvar\nData:"+pro.getData()+
 				"\nid_usuario_analista: "+ pro.getUsuario().getId()+",\r\n" + 
 				"\nstatus_documentos:"+pro.getStatusDocumentos()+
 				"\nstatus_proposta:"+pro.getStatusProposta() + 
 				"\nstatusspc:"+pro.getStatusSPC());
-		
+		*/
+		//Usuario usuario = usuarioRepository.findById(pro.getId());
+		//if (usuario.getPermissao().equals(""))
 		uRepository.save(pro);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}
