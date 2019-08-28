@@ -23,10 +23,13 @@ public class Proposta {
 	public String statusProposta;
 	public String statusSPC;
 	public String statusDocumentos;
-	public String idUsuarioAnalista;
+	//public String idUsuarioAnalista;
 	@ManyToOne
 	@JoinColumn
 	public Cliente cliente;
+	@ManyToOne
+	@JoinColumn
+	public Usuario usuario;
 	
 
 	public Proposta() {
@@ -34,15 +37,15 @@ public class Proposta {
 
 
 	public Proposta(long id, Date data, String statusProposta, String statusSPC, String statusDocumentos,
-			String idUsuarioAnalista, Cliente cliente) {
+			Cliente cliente, Usuario usuario) {
 		super();
 		this.id = id;
 		this.data = data;
 		this.statusProposta = statusProposta;
 		this.statusSPC = statusSPC;
 		this.statusDocumentos = statusDocumentos;
-		this.idUsuarioAnalista = idUsuarioAnalista;
 		this.cliente = cliente;
+		this.usuario = usuario;
 	}
 
 
@@ -96,16 +99,6 @@ public class Proposta {
 	}
 
 
-	public String getIdUsuarioAnalista() {
-		return idUsuarioAnalista;
-	}
-
-
-	public void setIdUsuarioAnalista(String idUsuarioAnalista) {
-		this.idUsuarioAnalista = idUsuarioAnalista;
-	}
-
-
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -116,12 +109,20 @@ public class Proposta {
 	}
 
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	
-	
 	
 
 }

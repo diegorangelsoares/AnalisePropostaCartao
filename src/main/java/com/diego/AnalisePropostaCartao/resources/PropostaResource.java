@@ -46,7 +46,7 @@ public class PropostaResource {
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
 		System.out.println("Chamou save");
 		System.out.println("Proposta para salvar\nData:"+pro.getData()+
-				"\nid_usuario_analista: "+ pro.getIdUsuarioAnalista()+",\r\n" + 
+				"\nid_usuario_analista: "+ pro.getUsuario().getId()+",\r\n" + 
 				"\nstatus_documentos:"+pro.getStatusDocumentos()+
 				"\nstatus_proposta:"+pro.getStatusProposta() + 
 				"\nstatusspc:"+pro.getStatusSPC());

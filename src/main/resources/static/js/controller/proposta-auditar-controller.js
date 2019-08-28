@@ -23,7 +23,7 @@ appCliente.controller("propostaAuditarController", function ($scope, $http){
 	};
 	
 	$scope.salvarPropostas = function (){		
-		if ($scope.frmProposta.$valid){
+		//if ($scope.frmProposta.$valid){
 			$http({method:'POST', url:'http://localhost:8080/admin/Propostas', data:$scope.proposta})
 			.then(function(response){
 				$scope.propostas.push (response.data);
@@ -32,15 +32,17 @@ appCliente.controller("propostaAuditarController", function ($scope, $http){
 				carregarPropostas();
 				//CHAMA PARA LIMPAR O CAMPO
 				$scope.cancelarAlteracaoProposta()
-				$scope.frmProposta.$setPristine(true);
+				//$scope.frmProposta.$setPristine(true);
 			}, function (response){
 				console.log(response.data);
 				console.log(response.status);
 			});
-			
+		
+			/**
 		}else{
 			window.alert("Dados Inválidos");
 		}
+		*/
 
 	}
 	
@@ -62,6 +64,7 @@ appCliente.controller("propostaAuditarController", function ($scope, $http){
 	}
 	
 	$scope.alterarProposta = function (pro) {
+		//$scope.pro.data = "";
 		$scope.proposta = angular.copy(pro);
 		
 	}

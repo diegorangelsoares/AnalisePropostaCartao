@@ -15,7 +15,7 @@
 		</div>	
 		<div>
 		<label>Id do Usuário: </label>
-			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.idUsuarioAnalista" required/>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.usuario.id" required/>
 	    <span ng-show="frmProposta.txtIdUsuario.$error.required && frmProposta.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
 		</div>	
 		<div>
@@ -46,7 +46,7 @@
 		</form>
 		id | Data | Cliente | Status Proposta | Consultor Responsável
 		<div ng-repeat="pro in propostas">
-		 	{{pro.id + ' | ' +pro.data + ' | '+ pro.cliente.nome +' | '+pro.statusProposta +' | '+pro.idUsuarioAnalista }} 
+		 	{{pro.id + ' | ' +pro.data + ' | '+ pro.cliente.nome +' | '+pro.statusProposta +' | '+pro.usuario.nome }} 
 		 	<!-- 
 			<input type="button" value="Excluir" ng-click="excluirProposta(pro)"/>
 		    <input type="button" value="Alterar" ng-click="alterarProposta(pro)"/>
