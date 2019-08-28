@@ -15,13 +15,13 @@
 		</div>	
 		<div>
 		<label>Id do Usuário: </label>
-			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.id_usuario_analista" required/>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.idUsuarioAnalista" required/>
 	    <span ng-show="frmProposta.txtIdUsuario.$error.required && frmProposta.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
 		</div>	
 		<div>
 		<div>
 		<label>Id do Cliente: </label>
-			<input type="text" ng-minlength="2" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.id_cliente" required/>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.cliente.id" required/>
 	<!-- 	<span ng-show="frmProposta.txtIdCliente.$error.required && frmProposta.txtIdCliente.$dirty">Campo Id do cliente Obrigatório</span> -->	
 		</div>	
 		<div>
@@ -44,10 +44,13 @@
 			 -->
 		</div>		
 		</form>
+		id | Data | Cliente | Status Proposta | Consultor Responsável
 		<div ng-repeat="pro in propostas">
-		 	{{pro.id + '|' +pro.id_data}} 
+		 	{{pro.id + ' | ' +pro.data + ' | '+ pro.cliente.nome +' | '+pro.statusProposta +' | '+pro.idUsuarioAnalista }} 
+		 	<!-- 
 			<input type="button" value="Excluir" ng-click="excluirProposta(pro)"/>
 		    <input type="button" value="Alterar" ng-click="alterarProposta(pro)"/>
 		    <a href="#/propostas/{{pro.id}}">Detalhe</a>
+		     -->
 		</div>
 </div>

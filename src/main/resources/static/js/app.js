@@ -13,6 +13,10 @@ appCliente.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'view/proposta.html',
 			controller : "propostaController"
 		})
+		.when('/propostasAuditar', {
+			templateUrl: 'view/proposta-auditar.html',
+			controller : "propostaAuditarController"
+		})
 		.when('/clientes/:clienteId', {
 			templateUrl: 'view/cliente-detalhe.html',
 			controller : "clienteDetalheController"

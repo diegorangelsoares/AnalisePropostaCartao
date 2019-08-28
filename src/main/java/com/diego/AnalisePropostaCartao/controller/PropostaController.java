@@ -25,6 +25,15 @@ public class PropostaController {
 	//End point
 	@RequestMapping(method = RequestMethod.POST, value="/Propostas",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Proposta> cadastrarProposta(@RequestBody Proposta Proposta) {
+		if (Proposta.getStatusProposta() == null) {
+			Proposta.setStatusProposta("pendente");
+		}
+		if (Proposta.getStatusDocumentos() == null) {
+			Proposta.setStatusDocumentos("pendente");
+		}
+		if (Proposta.getStatusSPC() == null) {
+			Proposta.setStatusSPC("pendente");
+		}
 		Proposta PropostaCadastrado = PropostaService.cadastrar(Proposta);
 		return new ResponseEntity<Proposta>(PropostaCadastrado, HttpStatus.CREATED);
 	}

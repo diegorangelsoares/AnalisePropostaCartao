@@ -1,0 +1,73 @@
+<style>
+	fieldset{
+		display:inline;
+	}
+</style>
+
+<div>
+	Auditar Propostas para Cartão VISA <br/> 
+		
+		<form novalidate name="frmPropostaAuditar">
+		<div>
+		<label>Data do cadastro: </label>
+			<input type="date" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
+			<span ng-show="frmPropostaAuditar.txtData.$error.required && frmPropostaAuditar.txtData.$dirty">Campo Data Obrigatório</span>
+		</div>	
+		<div>
+		<label>Id do Usuário: </label>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.id_usuario_analista" required/>
+	    <span ng-show="frmPropostaAuditar.txtIdUsuario.$error.required && frmPropostaAuditar.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
+		</div>	
+		<div>
+		<div>
+		<label>Id do Cliente: </label>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.id_cliente" required/>
+	<!-- 	<span ng-show="frmPropostaAuditar.txtIdCliente.$error.required && frmPropostaAuditar.txtIdCliente.$dirty">Campo Id do cliente Obrigatório</span> -->	
+		</div>	
+		<div>
+		<label>Status Proposta: </label>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtStatusProposta" ng-model="proposta.id_cliente" required/>
+	<!-- 	<span ng-show="frmPropostaAuditar.txtStatusProposta.$error.required && frmPropostaAuditar.txtStatusProposta.$dirty">Campo Id do cliente Obrigatório</span> -->	
+		</div>	
+		<div>
+		<label>Status dos Documentos: </label>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtStatusDocumentos" ng-model="proposta.id_cliente" required/>
+	<!-- 	<span ng-show="frmPropostaAuditar.txtStatusDocumentos.$error.required && frmPropostaAuditar.txtStatusDocumentos.$dirty">Campo Id do cliente Obrigatório</span> -->	
+		</div>	
+		<div>
+		<label>Status SPC: </label>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtStatusSPC" ng-model="proposta.id_cliente" required/>
+	<!-- 	<span ng-show="frmPropostaAuditar.txtStatusSPC.$error.required && frmPropostaAuditar.txtStatusSPC.$dirty">Campo Id do cliente Obrigatório</span> -->	
+		</div>	
+		<div>
+		<!--
+		<label>Estado: </label>
+			<select name="txtEstado" ng-model="cliente.Estado" required>
+				<option ></option>
+			</select>
+			 <span ng-show="frmPropostaAuditar.txtEstadol.$error.required">Campo Nome Obrigatório</span> -->
+		</div>	
+			<!-- <input type="button" value="Salvar" ng-click="salvarClientes()" ng-disabled="frmPropostaAuditar.$invalid"/> -->
+			<input type="button" value="Salvar" ng-click="salvarPropostas()"/>
+			<input type="button" value="Cancelar" ng-click="cancelarAlteracaoProposta()"ng-disabled="frmPropostaAuditar.$invalid"/>
+		<div style="">
+		<!-- 
+			<fieldset>
+				<legend>Formulario</legend>
+				valid: {{frmPropostaAuditar.$valid}}
+			</fieldset>
+			 -->
+		</div>		
+		</form>
+		id | Data | Cliente | Status Proposta | Status SPC | Status Documentos
+		<div ng-repeat="pro in propostas">
+		 	{{pro.id + ' | ' +pro.data + ' | ' +pro.cliente.nome + ' | ' +pro.statusProposta + ' | ' +pro.statusSPC + ' | ' +pro.statusDocumentos}} 
+		 	<!-- 
+			<input type="button" value="Excluir" ng-click="excluirProposta(pro)"/>
+			-->
+		    <input type="button" value="Auditar" ng-click="alterarProposta(pro)"/>
+		    <!--
+		    <a href="#/propostas/{{pro.id}}">Detalhe</a>
+		     -->
+		</div>
+</div>

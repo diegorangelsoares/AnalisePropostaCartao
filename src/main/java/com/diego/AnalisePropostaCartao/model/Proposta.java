@@ -1,5 +1,7 @@
 package com.diego.AnalisePropostaCartao.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +19,7 @@ public class Proposta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	public String data;
+	public Date data;
 	public String statusProposta;
 	public String statusSPC;
 	public String statusDocumentos;
@@ -26,14 +28,15 @@ public class Proposta {
 	@JoinColumn
 	public Cliente cliente;
 	
-	
-	
+
 	public Proposta() {
 	}
 
-	public Proposta(String data, String statusProposta, String statusSPC, String statusDocumentos,
+
+	public Proposta(long id, Date data, String statusProposta, String statusSPC, String statusDocumentos,
 			String idUsuarioAnalista, Cliente cliente) {
 		super();
+		this.id = id;
 		this.data = data;
 		this.statusProposta = statusProposta;
 		this.statusSPC = statusSPC;
@@ -42,52 +45,74 @@ public class Proposta {
 		this.cliente = cliente;
 	}
 
+
 	public long getId() {
 		return id;
 	}
+
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getData() {
+
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+
+	public void setData(Date data) {
 		this.data = data;
 	}
+
 
 	public String getStatusProposta() {
 		return statusProposta;
 	}
 
+
 	public void setStatusProposta(String statusProposta) {
 		this.statusProposta = statusProposta;
 	}
+
 
 	public String getStatusSPC() {
 		return statusSPC;
 	}
 
+
 	public void setStatusSPC(String statusSPC) {
 		this.statusSPC = statusSPC;
 	}
+
 
 	public String getStatusDocumentos() {
 		return statusDocumentos;
 	}
 
+
 	public void setStatusDocumentos(String statusDocumentos) {
 		this.statusDocumentos = statusDocumentos;
 	}
+
 
 	public String getIdUsuarioAnalista() {
 		return idUsuarioAnalista;
 	}
 
+
 	public void setIdUsuarioAnalista(String idUsuarioAnalista) {
 		this.idUsuarioAnalista = idUsuarioAnalista;
+	}
+
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 
@@ -95,16 +120,6 @@ public class Proposta {
 		return serialVersionUID;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
-	
-	
 	
 	
 	
