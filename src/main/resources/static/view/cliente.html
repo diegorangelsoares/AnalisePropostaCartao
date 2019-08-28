@@ -10,7 +10,7 @@
 		<form novalidate name="frmCliente">
 		<div>
 		<label>Nome: </label>
-			<input type="text" ng-minlength="2" ng-maxlength="10" name="txtNome" ng-model="cliente.nome" required/>
+			<input type="text" ng-minlength="1" ng-maxlength="100" name="txtNome" ng-model="cliente.nome" required/>
 			<span ng-show="frmCliente.txtNome.$error.required && frmCliente.txtNome.$dirty">Campo Nome Obrigatório</span>
 		</div>	
 		<div>
