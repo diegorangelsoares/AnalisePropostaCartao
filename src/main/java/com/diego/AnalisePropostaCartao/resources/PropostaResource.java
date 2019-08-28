@@ -35,20 +35,20 @@ public class PropostaResource {
 		return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
 	}
 	
-	@GetMapping( path="Proposta/{id}")
+	@GetMapping( path="Propostas/{id}")
 	public ResponseEntity<?> getprosById(@PathVariable("id") long id){
 		verifyIfprosExists(id);
 		Proposta pro = uRepository.findById(id);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}
 	
-	@PostMapping(path="Proposta")
+	@PostMapping(path="Propostas")
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
 		uRepository.save(pro);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}
 	
-	@DeleteMapping(path="Proposta/{id}")
+	@DeleteMapping(path="Propostas/{id}")
 	public ResponseEntity<?> delete(@PathVariable(name="id") long id){
 		verifyIfprosExists(id);
 		Proposta pro = uRepository.findById(id);
@@ -56,7 +56,7 @@ public class PropostaResource {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@PutMapping(path="Proposta")
+	@PutMapping(path="Propostas")
 	public ResponseEntity<?> update(@RequestBody Proposta pro){
 		verifyIfprosExists(pro.getId());
 		uRepository.save(pro);

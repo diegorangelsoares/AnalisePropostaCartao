@@ -1,0 +1,53 @@
+<style>
+	fieldset{
+		display:inline;
+	}
+</style>
+
+<div>
+	Cadastrados de Propostas <br/> 
+		
+		<form novalidate name="frmProposta">
+		<div>
+		<label>Data do cadastro: </label>
+			<input type="date" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
+			<span ng-show="frmProposta.txtData.$error.required && frmProposta.txtData.$dirty">Campo Data Obrigatório</span>
+		</div>	
+		<div>
+		<label>Id do Usuário: </label>
+			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.id_usuario_analista" required/>
+	    <span ng-show="frmProposta.txtIdUsuario.$error.required && frmProposta.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
+		</div>	
+		<div>
+		<div>
+		<label>Id do Cliente: </label>
+			<input type="text" ng-minlength="2" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.id_cliente" required/>
+	<!-- 	<span ng-show="frmProposta.txtIdCliente.$error.required && frmProposta.txtIdCliente.$dirty">Campo Id do cliente Obrigatório</span> -->	
+		</div>	
+		<div>
+		<!--
+		<label>Estado: </label>
+			<select name="txtEstado" ng-model="cliente.Estado" required>
+				<option ></option>
+			</select>
+			 <span ng-show="frmProposta.txtEstadol.$error.required">Campo Nome Obrigatório</span> -->
+		</div>	
+			<!-- <input type="button" value="Salvar" ng-click="salvarClientes()" ng-disabled="frmProposta.$invalid"/> -->
+			<input type="button" value="Salvar" ng-click="salvarPropostas()"/>
+			<input type="button" value="Cancelar" ng-click="cancelarAlteracaoProposta()"ng-disabled="frmProposta.$invalid"/>
+		<div style="">
+		<!-- 
+			<fieldset>
+				<legend>Formulario</legend>
+				valid: {{frmProposta.$valid}}
+			</fieldset>
+			 -->
+		</div>		
+		</form>
+		<div ng-repeat="pro in propostas">
+		 	{{pro.id + '|' +pro.id_data}} 
+			<input type="button" value="Excluir" ng-click="excluirProposta(pro)"/>
+		    <input type="button" value="Alterar" ng-click="alterarProposta(pro)"/>
+		    <a href="#/propostas/{{pro.id}}">Detalhe</a>
+		</div>
+</div>
