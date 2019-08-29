@@ -26,6 +26,7 @@ public class TokenFilter extends GenericFilterBean{
 			throws IOException, ServletException {
 		
 			HttpServletRequest req = (HttpServletRequest) request;
+			/**
 			String header = req.getHeader("Authorization");
 			// header esta vindo null mesmo enviando null <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ver isso aqui pq ta vindo do postman
 			if (header == null || !header.startsWith("Bearer ")) {
@@ -44,7 +45,7 @@ public class TokenFilter extends GenericFilterBean{
 			//}catch (SignatureException e) {
 				throw new ServletException("Token inválido.");
 			}
-			
+			*/
 			chain.doFilter(request, response);
 			
 	}

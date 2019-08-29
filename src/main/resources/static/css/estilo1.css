@@ -1,6 +1,7 @@
 body {
-  padding-top: 2rem;
+  
   padding-bottom: 2rem;
+  
 }
 
 h3 {
@@ -24,4 +25,13 @@ h3 {
 hr {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+h2 {
+	text-align: center;
+}
+.login{
+	margin-left: 1200px;
+}
+.campos{
+	margin-left: 15px;
 }

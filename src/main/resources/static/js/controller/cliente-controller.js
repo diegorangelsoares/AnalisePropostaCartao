@@ -41,7 +41,7 @@ appCliente.controller("clienteController", function ($scope, $http){
 			});
 			
 		}else{
-			window.alert("Dados Inválidos");
+			window.alert("Verifique o fomulário, dados incompletos ou Inválidos");
 		}
 
 	}

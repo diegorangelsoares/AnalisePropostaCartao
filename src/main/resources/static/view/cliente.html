@@ -4,35 +4,38 @@
 	}
 </style>
 
-<div>
-	Cadastrados de Clientes <!--  - {{cliente.nome}}  --><br/> 
+<div class="campos">
+	<h4>Cadastros de Clientes <!--  - {{cliente.nome}}  --></h4><br/> 
 		
 		<form novalidate name="frmCliente">
-		<div>
+		<div class="form-group">
 		<label>Nome: </label>
-			<input type="text" ng-minlength="1" ng-maxlength="100" name="txtNome" ng-model="cliente.nome" required/>
+			<input type="text" class="form-control" style ="font-size:13px; width:600px" ng-minlength="1" ng-maxlength="100" name="txtNome" ng-model="cliente.nome" required/>
 			<span ng-show="frmCliente.txtNome.$error.required && frmCliente.txtNome.$dirty">Campo Nome Obrigatório</span>
 		</div>	
 		<div>
 		<label>CPF: </label>
-			<input type="text" ng-minlength="2" ng-maxlength="10" name="txtCpf" ng-model="cliente.cpf" required/>
+			<input type="text" class="form-control" style ="font-size:13px; width:600px" ng-minlength="2" ng-maxlength="10" name="txtCpf" ng-model="cliente.cpf" required/>
 		<!-- <span ng-show="frmCliente.txtCpf.$error.required && frmCliente.txtCpf.$dirty">Campo CPF Obrigatório</span> -->	
 		</div>	
 		<div>
 		<label>E-mail: </label>
-			<input type="email" name="txtEmail" ng-model="cliente.email" required/>
+			<input type="email" class="form-control" style ="font-size:13px; width:600px" name="txtEmail" ng-model="cliente.email" required/>
 			<span ng-show="frmCliente.txtEmail.$error.email">Email inválido</span>
 		</div>	
+		</div>
 		<!--
 		<label>Estado: </label>
 			<select name="txtEstado" ng-model="cliente.Estado" required>
 				<option ></option>
 			</select>
 			 <span ng-show="frmCliente.txtEstadol.$error.required">Campo Nome Obrigatório</span> -->
-		</div>	
+		</div>
+		<div class="campos">	
 			<!-- <input type="button" value="Salvar" ng-click="salvarClientes()" ng-disabled="frmCliente.$invalid"/> -->
-			<input type="button" value="Salvar" ng-click="salvarClientes()"/>
-			<input type="button" value="Cancelar" ng-click="cancelarAlteracaoCliente()"ng-disabled="frmCliente.$invalid"/>
+			<input type="button" class="btn btn-secondary" value="Salvar" ng-click="salvarClientes()"/>
+			<input type="button" class="btn btn-secondary" value="Cancelar" ng-click="cancelarAlteracaoCliente()"ng-disabled="frmCliente.$invalid"/>
+		</div>
 		<div style="">
 		<!-- 
 			<fieldset>
@@ -42,11 +45,12 @@
 			 -->
 		</div>		
 		</form>
+		<div class="campos">
 		id | Cliente | CPF
 		<div ng-repeat="cli in clientes">
 			{{cli.id + '|' +cli.nome + '|' +cli.cpf}} 
 			<input type="button" value="Excluir" ng-click="excluirCliente(cli)"/>
 		    <input type="button" value="Alterar" ng-click="alterarCliente(cli)"/>
 		    <!-- <a href="#/clientes/{{cli.id}}">Detalhe</a> -->
-		</div>
+		</div></div>
 </div>
