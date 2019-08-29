@@ -38,6 +38,9 @@ Link do repositório no Git: https://github.com/diegorangelsoares/AnalisePropost
 Link para acesso aos andpoints pelo swagger
 localhost:8080/swagger-ui.html
 
+Link para acessar a interface Angular
+http://localhost:8080/#/
+
 
 SQL do BancoProposta.sql
 
