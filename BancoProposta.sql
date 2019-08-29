@@ -28,7 +28,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 
-insert  into `hibernate_sequence`(`next_val`) values (31),(31);
+insert  into `hibernate_sequence`(`next_val`) values (34),(34);
 
 UNLOCK TABLES;
 
@@ -73,7 +73,7 @@ CREATE TABLE `tab_proposta` (
 
 LOCK TABLES `tab_proposta` WRITE;
 
-insert  into `tab_proposta`(`id`,`data`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`,`usuario_id`) values (30,'2019-08-02 00:00:00','autorizada','pendente','autorizada',1,1),(0,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(8,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(1,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(2,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(3,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(4,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(5,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(6,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(29,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1);
+insert  into `tab_proposta`(`id`,`data`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`,`usuario_id`) values (30,'2019-08-02 00:00:00','autorizada','autorizada','autorizada',1,1),(0,'2019-08-02 00:00:00','pendente','pendente','pendente',2,1),(8,'2019-08-02 00:00:00','pendente','pendente','pendente',3,1),(1,'2019-08-02 00:00:00','pendente','pendente','pendente',4,1),(2,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(3,'2019-08-02 00:00:00','pendente','pendente','pendente',2,1),(4,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(5,'2019-08-02 00:00:00','pendente','pendente','pendente',4,1),(6,'2019-08-02 00:00:00','pendente','pendente','pendente',2,1),(29,'2019-08-02 00:00:00','pendente','pendente','pendente',4,1),(31,'2019-07-31 00:00:00','pendente','pendente','pendente',3,1),(32,'2013-12-04 00:01:00','pendente','pendente','pendente',3,1),(33,'2013-12-02 00:00:00','pendente','pendente','pendente',4,1);
 
 UNLOCK TABLES;
 
@@ -85,6 +85,7 @@ CREATE TABLE `tab_usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
+  `permissao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -92,7 +93,7 @@ CREATE TABLE `tab_usuario` (
 
 LOCK TABLES `tab_usuario` WRITE;
 
-insert  into `tab_usuario`(`id`,`nome`,`senha`) values (1,'admin','123');
+insert  into `tab_usuario`(`id`,`nome`,`senha`,`permissao`) values (1,'admin','123','auditor');
 
 UNLOCK TABLES;
 
