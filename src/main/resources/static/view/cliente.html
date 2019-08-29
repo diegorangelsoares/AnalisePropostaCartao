@@ -49,8 +49,8 @@
 		id | Cliente | CPF
 		<div ng-repeat="cli in clientes">
 			{{cli.id + '|' +cli.nome + '|' +cli.cpf}} 
-			<input type="button" value="Excluir" ng-click="excluirCliente(cli)"/>
-		    <input type="button" value="Alterar" ng-click="alterarCliente(cli)"/>
+			<input type="button" class="btn btn-secondary" value="Excluir" ng-click="excluirCliente(cli)"/>
+		    <input type="button" class="btn btn-secondary" value="Alterar" ng-click="alterarCliente(cli)"/>
 		    <!-- <a href="#/clientes/{{cli.id}}">Detalhe</a> -->
 		</div></div>
 </div>
