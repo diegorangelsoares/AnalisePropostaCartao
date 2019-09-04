@@ -8,15 +8,16 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 * @author Diego Rangel
 * @return -
 */
-@ResponseStatus(HttpStatus.NOT_FOUND)
-public class ResourceNotFoundException extends RuntimeException {
-   /**
-	 * 
-	 */
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public class ResourceNotFoundException extends RuntimeException {
+	   /**
+		 * 
+		 */
 	private static final long serialVersionUID = 1L;
-
-public ResourceNotFoundException(String mensagem) {
-	   super(mensagem);
-	// TODO Auto-generated constructor stub
-}
+	
+	public ResourceNotFoundException(String mensagem) {
+		   super(mensagem);
+		// TODO Auto-generated constructor stub
+	}
+	
 }

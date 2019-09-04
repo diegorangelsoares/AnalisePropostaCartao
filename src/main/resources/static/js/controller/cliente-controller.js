@@ -28,6 +28,7 @@ appCliente.controller("clienteController", function ($scope, $http){
 		if ($scope.frmCliente.$valid){
 			$http({method:'POST', url:'http://localhost:8080/admin/clientes', data:$scope.cliente})
 			.then(function(response){
+				console.log("Chamou a funcao salvar no cliente-controller.js");
 				$scope.clientes.push (response.data);
 				console.log(response.data);
 				console.log(response.status);
@@ -50,7 +51,7 @@ appCliente.controller("clienteController", function ($scope, $http){
 		$http({method:'DELETE', url:'http://localhost:8080/admin/clientes/'+cliente.id})
 		.then(function(response){
 			//Buscar posicao do cliente no array
-			 
+			console.log("Chamou a funcao excluirCliente no cliente-controller.js");
 			pos = $scope.clientes.indexOf(cliente);
 			$scope.clientes.splice (pos,1); 
 
@@ -77,4 +78,24 @@ appCliente.controller("clienteController", function ($scope, $http){
 	
 	
 	
+});
+
+appCliente.directive('cpfValido', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ctrl) {
+ 
+            scope.$watch(attrs.ngModel, function () {
+ 
+                if (elem[0].value.length == 0)
+                    ctrl.$setValidity('cpfValido', true);
+                else if (elem[0].value.length < 11) {
+                    //aplicar o algoritmo de validação completo do CPF
+                    ctrl.$setValidity('cpfValido', false);
+                }
+                else ctrl.$setValidity('cpfValido', true);
+            });
+        }
+    };
 });

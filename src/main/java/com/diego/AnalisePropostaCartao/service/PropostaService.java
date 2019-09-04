@@ -38,6 +38,20 @@ public class PropostaService {
 		}
 		return pro;
 	}
+	
+	public Proposta buscarPorIdCliente(long id) {
+		System.out.println("Buscando proposta com idcliente "+id);
+		List<Proposta> Propostas = PropostaRepository.findAll();
+		Proposta pro = null;
+		for (int i = 0; i < Propostas.size(); i++) {
+			System.out.println("Proposta: "+Propostas.get(i).getId() +" IdCliente: "+id);
+			if (Propostas.get(i).getCliente().getId() == id) {
+				System.out.println("Achou proposta com idcliente "+id);
+				pro = Propostas.get(i);
+			}
+		}
+		return pro;
+	}
 		
 	public Proposta alterar(Proposta Proposta) {
 		return PropostaRepository.save(Proposta);

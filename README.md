@@ -9,6 +9,8 @@ Configuração da aplicação:
 
 	Banco Mysql está configurado para a porta 3309 (Pode ser alterado no arquivo do projeto application.properties)
 	Criar uma banco de dados no Mysql com nome de propostas
+	Usuário do banco: root (Pode ser alterado no arquivo do projeto application.properties)
+	Senha do banco: 123456 (Pode ser alterado no arquivo do projeto application.properties)
 	Executar o script contido no projeto BancoProposta.sql (Contém alguns clientes, propostas e usuários cadastrados no banco)
 
 Created by Diego Rangel

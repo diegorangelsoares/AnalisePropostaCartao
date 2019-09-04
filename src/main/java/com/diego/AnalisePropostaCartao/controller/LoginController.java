@@ -31,6 +31,8 @@ public class LoginController {
 	
 	@Autowired
 	UsuarioService usuarioService;
+	
+	ConvertPasswordToMD5 convertPasswordToMD5 = new ConvertPasswordToMD5();
 		
 	//End point
 	@RequestMapping(method = RequestMethod.POST, value="/autenticar",consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -47,6 +49,8 @@ public class LoginController {
 		if (usuarioAutenticado == null) {
 			throw new ServletException("Usuário não encontrado.");
 		}
+		//Verificando senha criptografada
+		//if (!convertPasswordToMD5.encripta(usuarioAutenticado.getSenha()).equals(convertPasswordToMD5.encripta(usuario.getSenha()))) {
 		if (!usuarioAutenticado.getSenha().equals(usuario.getSenha())) {
 			throw new ServletException("Usuário ou senha inválido.");
 		}

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.AnalisePropostaCartao.erro.ResourceNotFoundException;
 import com.diego.AnalisePropostaCartao.model.Cliente;
 import com.diego.AnalisePropostaCartao.repository.ClienteRepository;
+import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
 
 /**Classe de tratamentos do Cliente
 * @author Diego Rangel
@@ -29,6 +30,9 @@ public class ClienteResource {
 
 		@Autowired
 		private ClienteRepository uRepository;
+		
+		@Autowired
+		private PropostaRepository pRepository;
 		
 		@GetMapping(path="Clientes")
 		public ResponseEntity<?> listAll(Pageable pageable){
@@ -45,12 +49,15 @@ public class ClienteResource {
 		@PostMapping(path="Clientes")
 		public ResponseEntity<?> save(@Validated @RequestBody Cliente cli){
 			uRepository.save(cli);
+			//System.out.println("Chamou funcao salvar cliente");
 			return new ResponseEntity<>(cli,HttpStatus.OK);
 		}
 		
 		@DeleteMapping(path="Clientes/{id}")
 		public ResponseEntity<?> delete(@PathVariable(name="id") long id){
+			System.out.println("Chamou funcao delete cliente");
 			verifyIfclisExists(id);
+			//verificaSeTemContrato(id);
 			Cliente cli = uRepository.findById(id);
 			uRepository.delete(cli);
 			return new ResponseEntity<>(HttpStatus.OK);
@@ -67,5 +74,9 @@ public class ClienteResource {
 			if(uRepository.findById(id) == null)
 				throw new ResourceNotFoundException("Cliente não encontrado para o Id: " + id);
 		}
+		
+		
+		
+		
 	
 }
