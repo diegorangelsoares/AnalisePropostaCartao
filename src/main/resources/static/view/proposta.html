@@ -28,14 +28,6 @@
 		</div>	
 		<div>
 		
-	
-		
-		<!--
-		<label>Estado: </label>
-			<select name="txtEstado" ng-model="cliente.Estado" required>
-				<option ></option>
-			</select>
-			 <span ng-show="frmProposta.txtEstadol.$error.required">Campo Nome Obrigatório</span> -->
 		</div>	
 			<!-- <input type="button" value="Salvar" ng-click="salvarClientes()" ng-disabled="frmProposta.$invalid"/> -->
 			<input type="button" class="btn btn-secondary" value="Salvar" ng-click="salvarPropostas()"/>
@@ -49,13 +41,38 @@
 			 -->
 		</div>		
 		</form>
-		id | Data | Cliente | Status Proposta | Consultor Responsável
-		<div ng-repeat="pro in propostas">
-		 	{{pro.id + ' | ' +pro.data + ' | '+ pro.cliente.nome +' | '+pro.statusProposta +' | '+pro.usuario.nome }} 
-		 	<!-- 
-			<input type="button" value="Excluir" ng-click="excluirProposta(pro)"/>
-		    <input type="button" value="Alterar" ng-click="alterarProposta(pro)"/>
-		    <a href="#/propostas/{{pro.id}}">Detalhe</a>
-		     -->
+		
+		
+		
+		<div class="campos">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Data</th>
+			      <th scope="col">Cliente</th>
+			      <th scope="col">Status Proposta</th>
+			      <th scope="col">Consultor Responsável</th>
+			    </tr>
+			  </thead>
+				<tbody>
+					<!-- id | Cliente | CPF 
+					<div ng-repeat="cli in clientes">
+						{{cli.id + '|' +cli.nome + '|' +cli.cpf}} 
+						<input type="button" class="btn btn-secondary" value="Excluir" ng-click="excluirCliente(cli)"/>
+					    <input type="button" class="btn btn-secondary" value="Alterar" ng-click="alterarCliente(cli)"/>
+					-->
+						<tr ng-repeat="pro in propostas">
+					      <th scope="row">{{pro.id}}</th>
+					      <td>{{pro.data }}</td>
+					      <td>{{pro.cliente.nome }}</td>
+					      <td>{{pro.statusProposta }}</td>
+					      <td>{{pro.usuario.nome }}</td>
+					    </tr>
+				    </div>
+				</tbody>
+			</table>
+			
 		</div>
+		
 </div>

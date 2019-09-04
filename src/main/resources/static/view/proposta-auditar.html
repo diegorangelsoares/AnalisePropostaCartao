@@ -91,15 +91,45 @@
 			 -->
 		</div>		
 		</form>
-		id | Data                   | Cliente | Status Proposta | Status SPC | Status Documentos
-		<div ng-repeat="pro in propostas">
-		 	{{pro.id + ' | ' +pro.data + ' | ' +pro.cliente.nome + ' | ' +pro.statusProposta + ' | ' +pro.statusSPC + ' | ' +pro.statusDocumentos}} 
-		 	
-			<input type="button" class="btn btn-secondary" value="Excluir" ng-click="excluirProposta(pro)"/>
+		
+		
+		<div class="campos">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Data</th>
+			      <th scope="col">Cliente</th>
+			      <th scope="col">Consultor Responsável</th>
+			      <th scope="col">Status Proposta</th>
+			      <th scope="col">Status SPC</th>
+			      <th scope="col">Status Documentos</th>
+			      <th scope="col">Excluir</th>
+			      <th scope="col">Auditar</th>
+			    </tr>
+			  </thead>
+				<tbody>
+					<!-- id | Cliente | CPF 
+					<div ng-repeat="cli in clientes">
+						{{cli.id + '|' +cli.nome + '|' +cli.cpf}} 
+						<input type="button" class="btn btn-secondary" value="Excluir" ng-click="excluirCliente(cli)"/>
+					    <input type="button" class="btn btn-secondary" value="Alterar" ng-click="alterarCliente(cli)"/>
+					-->
+						<tr ng-repeat="pro in propostas">
+					      <th scope="row">{{pro.id}}</th>
+					      <td>{{pro.data }}</td>
+					      <td>{{pro.cliente.nome }}</td>
+					      <td>{{pro.usuario.nome }}</td>
+					      <td>{{pro.statusProposta }}</td>
+					      <td>{{pro.statusSPC }}</td>
+					      <td>{{pro.statusDocumentos }}</td>
+					      <td><input type="button" class="btn btn-secondary" value="Excluir" ng-click="excluirProposta(pro)"/></td>
+					      <td><input type="button" class="btn btn-secondary" value="Auditar" ng-click="alterarProposta(pro)"/></td>
+					    </tr>
+				    </div>
+				</tbody>
+			</table>
 			
-		    <input type="button" class="btn btn-secondary" value="Auditar" ng-click="alterarProposta(pro)"/>
-		    <!--
-		    <a href="#/propostas/{{pro.id}}">Detalhe</a>
-		     -->
 		</div>
+		
 </div>
