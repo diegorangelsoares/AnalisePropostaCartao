@@ -49,6 +49,7 @@ public class PropostaResource {
 	
 	@PostMapping(path="Propostas")
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
+		System.out.println("Chamou PropostaResource");
 		/**
 		System.out.println("Chamou save");
 		System.out.println("Proposta para salvar\nData:"+pro.getData()+

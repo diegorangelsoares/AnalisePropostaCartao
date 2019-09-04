@@ -19,7 +19,7 @@ public class Proposta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	public Date data;
+	public String data;
 	public String statusProposta;
 	public String statusSPC;
 	public String statusDocumentos;
@@ -36,7 +36,7 @@ public class Proposta {
 	}
 
 
-	public Proposta(long id, Date data, String statusProposta, String statusSPC, String statusDocumentos,
+	public Proposta(long id, String data, String statusProposta, String statusSPC, String statusDocumentos,
 			Cliente cliente, Usuario usuario) {
 		super();
 		this.id = id;
@@ -59,12 +59,12 @@ public class Proposta {
 	}
 
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

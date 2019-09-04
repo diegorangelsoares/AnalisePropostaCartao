@@ -12,7 +12,7 @@
 		<form novalidate name="frmProposta">
 		<div>
 		<label>Data do cadastro: </label>
-		 <input type="date" class="form-control" style ="font-size:13px; width:150px" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
+		 <input type="date" class="form-control" onBlur="ValidaData(frmCliente.txtData);" onKeyPress="MascaraDATA(frmCliente.txtData);" style ="font-size:13px; width:150px" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
 			<span ng-show="frmProposta.txtData.$error.required && frmProposta.txtData.$dirty" >Campo Data Obrigatório</span>
 		</div>	
 		<div>

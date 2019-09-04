@@ -1,11 +1,13 @@
 package com.diego.AnalisePropostaCartao.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.diego.AnalisePropostaCartao.controller.DataController;
 import com.diego.AnalisePropostaCartao.model.Proposta;
 import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
 
@@ -15,8 +17,13 @@ public class PropostaService {
 	@Autowired
 	PropostaRepository PropostaRepository;
 	
+	DataController dataController = new DataController();
+	
 	//Negocio
 	public Proposta cadastrar(Proposta Proposta) {
+		String data2 = Proposta.getData().substring(0, 9);
+		data2 = dataController.transformaDataComIfemEmComBarraDDMMYYYY(data2);
+		Proposta.setData(data2);
 		return PropostaRepository.save(Proposta);
 	}
 	

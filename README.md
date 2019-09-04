@@ -46,6 +46,21 @@ http://localhost:8080/#/
 
 SQL do BancoProposta.sql
 
+/*
+SQLyog Ultimate v9.01 
+MySQL - 5.1.46-community : Database - propostas
+*********************************************************************
+*/
+
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`propostas` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `propostas`;
@@ -62,7 +77,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 
-insert  into `hibernate_sequence`(`next_val`) values (34),(34);
+insert  into `hibernate_sequence`(`next_val`) values (57),(57);
 
 UNLOCK TABLES;
 
@@ -82,7 +97,7 @@ CREATE TABLE `tab_cliente` (
 
 LOCK TABLES `tab_cliente` WRITE;
 
-insert  into `tab_cliente`(`id`,`cpf`,`email`,`nome`) values (1,'60825057000','diegorangeljpa@gmail.com','Diego Rangel'),(2,'51101382813','pedro@gmail.com','Pedro Antonio'),(3,'45318947905','junior@gmail.com','Junior Ramalho'),(4,'14440735320','maria@gmail.com','Maria da Conceicao');
+insert  into `tab_cliente`(`id`,`cpf`,`email`,`nome`) values (1,'048.509.434-70','diegorangeljpa@gmail.com','Diego Rangel'),(2,'511.013.828-13','pedro@gmail.com','Pedro Antonio'),(3,'453.189.479-05','junior@gmail.com','Junior Ramalho'),(5,'123.123.123-23','a@a.com','Diego Rangel Diego'),(4,'123.123.123-23','a@a.com','Julia Da Silva'),(6,'048.509.434-71','a@a.com','Diego Rangel Diego');
 
 UNLOCK TABLES;
 
@@ -92,7 +107,7 @@ DROP TABLE IF EXISTS `tab_proposta`;
 
 CREATE TABLE `tab_proposta` (
   `id` bigint(20) NOT NULL,
-  `data` datetime DEFAULT NULL,
+  `data` varchar(255) DEFAULT NULL,
   `status_documentos` varchar(255) DEFAULT NULL,
   `status_proposta` varchar(255) DEFAULT NULL,
   `statusspc` varchar(255) DEFAULT NULL,
@@ -107,7 +122,7 @@ CREATE TABLE `tab_proposta` (
 
 LOCK TABLES `tab_proposta` WRITE;
 
-insert  into `tab_proposta`(`id`,`data`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`,`usuario_id`) values (30,'2019-08-02 00:00:00','autorizada','autorizada','autorizada',1,1),(0,'2019-08-02 00:00:00','pendente','pendente','pendente',2,1),(8,'2019-08-02 00:00:00','pendente','pendente','pendente',3,1),(1,'2019-08-02 00:00:00','pendente','pendente','pendente',4,1),(2,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(3,'2019-08-02 00:00:00','pendente','pendente','pendente',2,1),(4,'2019-08-02 00:00:00','pendente','pendente','pendente',1,1),(5,'2019-08-02 00:00:00','pendente','pendente','pendente',4,1),(6,'2019-08-02 00:00:00','pendente','pendente','pendente',2,1),(29,'2019-08-02 00:00:00','pendente','pendente','pendente',4,1),(31,'2019-07-31 00:00:00','pendente','pendente','pendente',3,1),(32,'2013-12-04 00:01:00','pendente','pendente','pendente',3,1),(33,'2013-12-02 00:00:00','pendente','pendente','pendente',4,1);
+insert  into `tab_proposta`(`id`,`data`,`status_documentos`,`status_proposta`,`statusspc`,`cliente_id`,`usuario_id`) values (30,'02/08/2019','autorizada','autorizada','autorizada',1,1),(0,'02/08/2019','pendente','pendente','pendente',2,1),(8,'02/08/2019','pendente','pendente','pendente',3,1),(1,'02/08/2019','pendente','pendente','pendente',4,1),(2,'02/08/2019','pendente','pendente','pendente',1,1),(3,'02/08/2019','pendente','pendente','pendente',2,1),(4,'02/08/2019','pendente','pendente','pendente',1,1),(5,'02/08/2019','pendente','pendente','pendente',4,1),(6,'02/08/2019','pendente','pendente','pendente',2,1);
 
 UNLOCK TABLES;
 
