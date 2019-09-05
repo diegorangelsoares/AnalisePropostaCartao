@@ -9,32 +9,32 @@
 		
 		<form novalidate name="frmPropostaAuditar" >
 		<div>
-		<label>Data do cadastro: </label>
+			<label for="singleSelect">Data do cadastro: </label>
 			<input type="text" class="form-control" disabled="true" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required  style ="font-size:16px; width:150px"/>
 			<span ng-show="frmPropostaAuditar.txtData.$error.required && frmPropostaAuditar.txtData.$dirty">Campo Data Obrigatório</span>
-		</div>	
+		</div>
+			</br>
 		<div>
-		<label>Usuário auditor: </label>
+			<label for="singleSelect">Usuário auditor: </label>
 			<input type="text" class="form-control" disabled="true" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.usuario.nome" required  style ="font-size:16px; width:150px"/>
-	    <span ng-show="frmPropostaAuditar.txtIdUsuario.$error.required && frmPropostaAuditar.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
+	    	<span ng-show="frmPropostaAuditar.txtIdUsuario.$error.required && frmPropostaAuditar.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
 		</div>	
+		</br>
 		<div>
-		<div>
-		<label>Cliente: </label>
+			<label for="singleSelect">Cliente: </label>
 			<input type="text" class="form-control" disabled="true" ng-minlength="1" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.cliente.nome" required  style ="font-size:16px; width:400px"/>
-	<!-- 	<span ng-show="frmPropostaAuditar.txtIdCliente.$error.required && frmPropostaAuditar.txtIdCliente.$dirty">Campo Id do cliente Obrigatório</span> -->	
 		</div>			
-		 
-		<div class="campos">
-		<label for="singleSelect"> Status Proposta: </label>
-	    <select name="singleSelect" class="form-control" ng-model="proposta.statusProposta" material-select watch required style ="font-size:16px; width:150px">
-	      <option value="autorizada">Autorizada</option>
-	      <option value="pendente">Pendente</option>
-	      <option value="negada">Negada</option>
+		 </br>
+		<div class="">
+			<label for="singleSelect"> Status Proposta: </label>
+			<!--<label> Status Proposta: </label> -->
+	    	<select name="singleSelect" class="form-control" ng-model="proposta.statusProposta" material-select watch required style ="font-size:16px; width:150px">
+	        <option value="autorizada">Autorizada</option>
+	        <option value="pendente">Pendente</option>
+	        <option value="negada">Negada</option>
 	    </select><br>
 		<div>
 		 
-		 <div>
 		<label for="singleSelect"> Status dos Documentos: </label>
 	    <select name="singleSelect" class="form-control" ng-model="proposta.statusDocumentos" required style ="font-size:16px; width:150px">
 	      <option value="autorizada">Autorizada</option>
@@ -57,6 +57,7 @@
 			<input type="button" class="btn btn-secondary" value="Salvar" ng-click="salvarPropostas()"/>
 			<input type="button" class="btn btn-secondary" value="Cancelar" ng-click="cancelarAlteracaoProposta()"ng-disabled="frmPropostaAuditar.$invalid"/>
 		<div style="">
+		</br>
 		<!-- 
 			<fieldset>
 				<legend>Formulario</legend>
