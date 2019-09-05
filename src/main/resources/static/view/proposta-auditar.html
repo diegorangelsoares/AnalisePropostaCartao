@@ -7,77 +7,51 @@
 <div class="campos">
 	<h4>Auditar Propostas</h4> <br/> 
 		
-		<form novalidate name="frmPropostaAuditar">
+		<form novalidate name="frmPropostaAuditar" >
 		<div>
 		<label>Data do cadastro: </label>
-			<input type="text" disabled="true" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
+			<input type="text" class="form-control" disabled="true" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required  style ="font-size:16px; width:150px"/>
 			<span ng-show="frmPropostaAuditar.txtData.$error.required && frmPropostaAuditar.txtData.$dirty">Campo Data Obrigatório</span>
 		</div>	
 		<div>
 		<label>Usuário auditor: </label>
-			<input type="text" disabled="true" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.usuario.nome" required/>
+			<input type="text" class="form-control" disabled="true" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.usuario.nome" required  style ="font-size:16px; width:150px"/>
 	    <span ng-show="frmPropostaAuditar.txtIdUsuario.$error.required && frmPropostaAuditar.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
 		</div>	
 		<div>
 		<div>
 		<label>Cliente: </label>
-			<input type="text" disabled="true" ng-minlength="1" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.cliente.nome" required/>
+			<input type="text" class="form-control" disabled="true" ng-minlength="1" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.cliente.nome" required  style ="font-size:16px; width:400px"/>
 	<!-- 	<span ng-show="frmPropostaAuditar.txtIdCliente.$error.required && frmPropostaAuditar.txtIdCliente.$dirty">Campo Id do cliente Obrigatório</span> -->	
-		</div>	
-		<!-- 
-		<div>
-		<label>Status Proposta: </label>
-			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtStatusProposta" ng-model="proposta.statusProposta" required/>
-	 -->
-	<!-- 	<span ng-show="frmPropostaAuditar.txtStatusProposta.$error.required && frmPropostaAuditar.txtStatusProposta.$dirty">Campo Id do cliente Obrigatório</span> -->	
-		</div>	
-		<!-- 
-		<div>
-		<label>Status dos Documentos: </label>
-			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtStatusDocumentos" ng-model="proposta.statusDocumentos" required/>
-	 -->
-	<!-- 	<span ng-show="frmPropostaAuditar.txtStatusDocumentos.$error.required && frmPropostaAuditar.txtStatusDocumentos.$dirty">Campo Id do cliente Obrigatório</span>	 -->
-		</div>	
-		<!-- 
-		<div>
-		<label>Status SPC: </label>
-			<input type="text" ng-minlength="1" ng-maxlength="10" name="txtStatusSPC" ng-model="proposta.statusSPC" required/>
-	 	<span ng-show="frmPropostaAuditar.txtStatusSPC.$error.required && frmPropostaAuditar.txtStatusSPC.$dirty">Campo Id do cliente Obrigatório</span>
-		</div>	
-		 -->
+		</div>			
 		 
-		 <div class="campos">
+		<div class="campos">
 		<label for="singleSelect"> Status Proposta: </label>
-	    <select name="singleSelect" ng-model="proposta.statusProposta" material-select watch required>
-	      <option value="autorizada">autorizada</option>
-	      <option value="pendente">pendente</option>
-	      <option value="negada">negada</option>
+	    <select name="singleSelect" class="form-control" ng-model="proposta.statusProposta" material-select watch required style ="font-size:16px; width:150px">
+	      <option value="autorizada">Autorizada</option>
+	      <option value="pendente">Pendente</option>
+	      <option value="negada">Negada</option>
 	    </select><br>
 		<div>
 		 
 		 <div>
 		<label for="singleSelect"> Status dos Documentos: </label>
-	    <select name="singleSelect" ng-model="proposta.statusDocumentos" required>
-	      <option value="autorizada">autorizada</option>
-	      <option value="pendente">pendente</option>
-	      <option value="negada">negada</option>
+	    <select name="singleSelect" class="form-control" ng-model="proposta.statusDocumentos" required style ="font-size:16px; width:150px">
+	      <option value="autorizada">Autorizada</option>
+	      <option value="pendente">Pendente</option>
+	      <option value="negada">Negada</option>
 	    </select><br>
 		<div>
 		 
 		<div>
 		<label for="singleSelect"> Status SPC: </label>
-	    <select name="singleSelect" ng-model="proposta.statusSPC" required>
-	      <option value="autorizada">autorizada</option>
-	      <option value="pendente">pendente</option>
-	      <option value="negada">negada</option>
+	    <select name="singleSelect" class="form-control" ng-model="proposta.statusSPC" material-select watch required  style ="font-size:16px; width:150px">
+	      <option value="autorizada">Autorizada</option>
+	      <option value="pendente">Pendente</option>
+	      <option value="negada">Negada</option>
 	    </select><br>
 		<div>
-		<!--
-		<label>Estado: </label>
-			<select name="txtEstado" ng-model="cliente.Estado" required>
-				<option ></option>
-			</select>
-			 <span ng-show="frmPropostaAuditar.txtEstadol.$error.required">Campo Nome Obrigatório</span> -->
+		
 		</div>	
 			<!-- <input type="button" value="Salvar" ng-click="salvarClientes()" ng-disabled="frmPropostaAuditar.$invalid"/> -->
 			<input type="button" class="btn btn-secondary" value="Salvar" ng-click="salvarPropostas()"/>

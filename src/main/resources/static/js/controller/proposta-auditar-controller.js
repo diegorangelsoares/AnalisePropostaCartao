@@ -8,12 +8,10 @@ appCliente.controller("propostaAuditarController", function ($scope, $http){
 	//$scope.carregarPropostas = function (){
 	carregarPropostas = function (){
 		token = localStorage.getItem("userToken");
-		//$http.defaults.headers.common.Authorization = 'Bearer '+token;
-		
+		//$http.defaults.headers.common.Authorization = 'Bearer '+token;		
 		$http({method:'GET', url:'/admin/Propostas'})
 		.then(function(response){
-			$scope.propostas = response.data;
-			
+			$scope.propostas = response.data;			
 			console.log(response.data);
 			console.log(response.status);
 		}, function (response){
@@ -26,6 +24,7 @@ appCliente.controller("propostaAuditarController", function ($scope, $http){
 		//if ($scope.frmProposta.$valid){
 			$http({method:'POST', url:'http://localhost:8080/admin/Propostas', data:$scope.proposta})
 			.then(function(response){
+				//console.log("Entrou no salvar);
 				$scope.propostas.push (response.data);
 				console.log(response.data);
 				console.log(response.status);

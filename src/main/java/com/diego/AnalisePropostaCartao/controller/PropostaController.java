@@ -25,6 +25,7 @@ public class PropostaController {
 	//End point
 	@RequestMapping(method = RequestMethod.POST, value="/Propostas",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Proposta> cadastrarProposta(@RequestBody Proposta Proposta) {
+		
 		if (Proposta.getStatusProposta() == null) {
 			Proposta.setStatusProposta("pendente");
 		}

@@ -10,12 +10,10 @@ appCliente.controller("clienteController", function ($scope, $http){
 	//$scope.carregarClientes = function (){
 	carregarClientes = function (){
 		token = localStorage.getItem("userToken");
-		//$http.defaults.headers.common.Authorization = 'Bearer '+token;
-		
+		//$http.defaults.headers.common.Authorization = 'Bearer '+token;		
 		$http({method:'GET', url:'http://localhost:8080/admin/clientes'})
 		.then(function(response){
-			$scope.clientes = response.data;
-			
+			$scope.clientes = response.data;			
 			console.log(response.data);
 			console.log(response.status);
 		}, function (response){

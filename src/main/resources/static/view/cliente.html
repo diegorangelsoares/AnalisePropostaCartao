@@ -11,7 +11,7 @@
 		<div class="form-group">
 		<label>Nome: </label>
 			<input type="text" class="form-control" style ="font-size:13px; width:600px" ng-minlength="1" ng-maxlength="100" name="txtNome" ng-model="cliente.nome" required/>
-			<span ng-show="frmCliente.txtNome.$error.required && frmCliente.txtNome.$dirty">Campo Nome Obrigatório</span>
+			<span ng-show="frmCliente.txtNome.$error.required && frmCliente.txtNome.$dirty">Nome Obrigatório</span>
 		</div>	
 		<div>
 		<label>CPF: </label>
@@ -24,38 +24,18 @@
 			<span ng-show="frmCliente.txtEmail.$error.email">E-mail inválido</span>
 		</div>	
 		</div>
-		<!--
-		<label>Estado: </label>
-			<select name="txtEstado" ng-model="cliente.Estado" required>
-				<option ></option>
-			</select>
-			 <span ng-show="frmCliente.txtEstadol.$error.required">Campo Nome Obrigatório</span> -->
+		<br>
 		</div>
 		<div class="campos">	
-			<!-- <input type="button" value="Salvar" ng-click="salvarClientes()" ng-disabled="frmCliente.$invalid"/> -->
 			<input type="button" class="btn btn-secondary" value="Salvar" ng-click="salvarClientes()"/>
 			<input type="button" class="btn btn-secondary" value="Cancelar" ng-click="cancelarAlteracaoCliente()"ng-disabled="frmCliente.$invalid"/>
 		</div>
 		<div style="">
-		<!-- 
-			<fieldset>
-				<legend>Formulario</legend>
-				valid: {{frmCliente.$valid}}
-			</fieldset>
-			 -->
-			 <!--
-			 <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00">
-<input type="text" class="form-control cep-mask" placeholder="Ex.: 00000-000">
-<input type="text" class="form-control time-mask" placeholder="Ex.: 00:00:00">
-<input type="text" class="form-control date-time-mask" placeholder="Ex.: 00/00/0000 00:00:00">
-<input type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000">
-<input type="text" class="form-control phone-ddd-mask" placeholder="Ex.: (00) 0000-0000">
-<input type="text" class="form-control cel-sp-mask" placeholder="Ex.: (00) 00000-0000">
-<input type="text" class="form-control cep-mask" placeholder="Ex.: AAA 000-S0S">
- -->
-		</div>		
-		</form>
 		
+		</div>	
+		<br>
+		</form>
+		<br>
 		<div class="campos">
 			<table class="table">
 			  <thead>
@@ -86,40 +66,5 @@
 			</table>
 			
 		</div>
-		
-		<!-- 
-		 <table class="table">
-			  <thead>
-			    <tr>
-			      <th scope="col">#</th>
-			      <th scope="col">Primeiro</th>
-			      <th scope="col">Último</th>
-			      <th scope="col">Nickname</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td>Larry</td>
-			      <td>the Bird</td>
-			      <td>@twitter</td>
-			    </tr>
-			  </tbody>
-			</table>
-		 -->
-		
-		
 		
 </div>

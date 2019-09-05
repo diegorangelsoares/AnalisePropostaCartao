@@ -30,25 +30,25 @@ public class UsuarioResource {
 	@Autowired
 	private UsuarioRepository uRepository;
 	
-	@GetMapping(path="usuarios")
+	@GetMapping(path="Usuarios")
 	public ResponseEntity<?> listAll(Pageable pageable){
 		return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
 	}
 	
-	@GetMapping( path="usuarios/{id}")
+	@GetMapping( path="Usuarios/{id}")
 	public ResponseEntity<?> getUsersById(@PathVariable("id") long id){
 		verifyIfUsersExists(id);
 		Usuario user = uRepository.findById(id);
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 	
-	@PostMapping(path="usuarios")
+	@PostMapping(path="Usuarios")
 	public ResponseEntity<?> save(@Validated @RequestBody Usuario user){
 		uRepository.save(user);
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 	
-	@DeleteMapping(path="usuarios/{id}")
+	@DeleteMapping(path="Usuarios/{id}")
 	public ResponseEntity<?> delete(@PathVariable(name="id") long id){
 		verifyIfUsersExists(id);
 		Usuario user = uRepository.findById(id);
@@ -56,7 +56,7 @@ public class UsuarioResource {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@PutMapping(path="usuarios")
+	@PutMapping(path="Usuarios")
 	public ResponseEntity<?> update(@RequestBody Usuario user){
 		verifyIfUsersExists(user.getId());
 		uRepository.save(user);

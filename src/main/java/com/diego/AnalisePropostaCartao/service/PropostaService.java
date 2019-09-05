@@ -21,9 +21,11 @@ public class PropostaService {
 	
 	//Negocio
 	public Proposta cadastrar(Proposta Proposta) {
-		String data2 = Proposta.getData().substring(0, 9);
-		data2 = dataController.transformaDataComIfemEmComBarraDDMMYYYY(data2);
-		Proposta.setData(data2);
+		if (Proposta.getData().contains("-")) {
+			String data2 = Proposta.getData().substring(0, 9);
+			data2 = dataController.transformaDataComIfemEmComBarraDDMMYYYY(data2);
+			Proposta.setData(data2);
+		}
 		return PropostaRepository.save(Proposta);
 	}
 	

@@ -12,20 +12,29 @@
 		<form novalidate name="frmProposta">
 		<div>
 		<label>Data do cadastro: </label>
-		 <input type="date" class="form-control" onBlur="ValidaData(frmCliente.txtData);" onKeyPress="MascaraDATA(frmCliente.txtData);" style ="font-size:13px; width:150px" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
+		 	<input type="date" class="form-control" style ="font-size:13px; width:150px" ng-minlength="1" ng-maxlength="100" name="txtData" ng-model="proposta.data" required/>
 			<span ng-show="frmProposta.txtData.$error.required && frmProposta.txtData.$dirty" >Campo Data Obrigatório</span>
 		</div>	
+		<!-- 
 		<div>
 		<label>Id do Usuário: </label>
 			<input type="number" class="form-control" style ="font-size:13px; width:60px" ng-minlength="1" ng-maxlength="10" name="txtIdUsuario" ng-model="proposta.usuario.id" required/>
 	    <span ng-show="frmProposta.txtIdUsuario.$error.required && frmProposta.txtIdUsuario.$dirty">Campo Id do Usuário Obrigatório</span> 
 		</div>	
+		<div> -->
+		
 		<div>
+		<label for="singleSelect">Usuário: </label>
+		    <select name="txtIdUsuario" class="form-control" ng-model="proposta.usuario.id" material-select watch required  style ="font-size:16px; width:400px">
+		     	<option ng-repeat="usu in usuarios" value="{{usu.id}}">{{usu.nome}}</option>
+		    </select><br>
 		<div>
-		<label>Id do Cliente: </label>
-			<input type="number" class="form-control" style ="font-size:13px; width:60px" ng-minlength="1" ng-maxlength="10" name="txtIdCliente" ng-model="proposta.cliente.id" required/>
-	<!-- 	<span ng-show="frmProposta.txtIdCliente.$error.required && frmProposta.txtIdCliente.$dirty">Campo Id do cliente Obrigatório</span> -->	
-		</div>	
+		
+		<div>
+		<label for="singleSelect">Cliente: </label>
+		    <select name="txtIdCliente" class="form-control" ng-model="proposta.cliente.id" material-select watch required  style ="font-size:16px; width:400px">
+		     	<option ng-repeat="cli in clientes" value="{{cli.id}}">{{cli.nome}}</option>
+		    </select><br>
 		<div>
 		
 		</div>	
