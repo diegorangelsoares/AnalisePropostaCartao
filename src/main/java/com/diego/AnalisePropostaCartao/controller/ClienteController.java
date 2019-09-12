@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.AnalisePropostaCartao.model.Cliente;
 import com.diego.AnalisePropostaCartao.service.ClienteService;
 
+//@RequestMapping ("/admin")
+
 @RestController
-@RequestMapping ("/admin")
+@RequestMapping ("/")
 public class ClienteController {
 	
 	@Autowired

@@ -28,12 +28,12 @@ public class UsuarioService{
 	}
 	
 	public Usuario buscarPorNome(String nome) {
-		//return usuarioRepository.buscarPorNome(nome);
+		//System.out.println("Chamou oi buscarPorNome");
 		return usuarioRepository.findByNome(nome);
 	}
 	
 	public void excluir (Usuario usuario) {
-		System.out.println("Chamou funcao excluir Usuario");
+		//System.out.println("Chamou funcao excluir Usuario");
 		usuarioRepository.delete(usuario);
 	}
 	

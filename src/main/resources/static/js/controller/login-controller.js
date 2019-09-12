@@ -2,16 +2,17 @@
 appCliente.controller("loginController", function ($scope, $http){
 	
 	$scope.usuario={};
-	
-	$scope.token = "";
+	$scope.usuarioLogado="";	
+	//$scope.token = "";
 	
 	$scope.autenticar = function (){
-		//console.log("CHAMOU AUTENTICAR: "); 
+		console.log("CHAMOU AUTENTICAR: "); 
 		$http.post("/autenticar",$scope.usuario).then(function(response){ //http://localhost:8080/autenticar
 			console.log("Sucesso - "+response);
-			$scope.token = response.data.token;
-			localStorage.setItem("userToken", response.data.token);
-			
+			//$scope.token = response.data.token;
+			//localStorage.setItem("userToken", response.data.token);
+			//$scope.usuarioLogado = response.data.usuario;
+			$scope.usuarioLogado = response.data.usuario;
 		},function(response){
 			console.log("Falha - "+response);
 			
@@ -20,6 +21,8 @@ appCliente.controller("loginController", function ($scope, $http){
 		//console.log("NOME: "+$scope.usuario.nome + " SENHA:"+$scope.usuario.senha);
 		
 	}
+	
+	
 
 	
 });

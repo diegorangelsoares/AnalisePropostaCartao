@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.service.UsuarioService;
 
+//@RequestMapping ("/admin")
+
 @RestController
-@RequestMapping ("/admin")
+@RequestMapping ("/")
 public class UsuarioController {
 	
 	@Autowired

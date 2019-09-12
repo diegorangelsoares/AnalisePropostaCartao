@@ -13,10 +13,10 @@ appCliente.controller("propostaController", function ($scope, $http){
 	//Request alimenta a array proposta com o response da api rest
 	//$scope.carregarPropostas = function (){
 	carregarPropostas = function (){
-		token = localStorage.getItem("userToken");
+		//token = localStorage.getItem("userToken");
 		//$http.defaults.headers.common.Authorization = 'Bearer '+token;
-		
-		$http({method:'GET', url:'/admin/Propostas'})
+		//$http({method:'GET', url:'/admin/Propostas'})
+		$http({method:'GET', url:'/Propostas'})
 		.then(function(response){
 			$scope.propostas = response.data;
 			
@@ -29,10 +29,10 @@ appCliente.controller("propostaController", function ($scope, $http){
 	};
 	
 	carregarClientes = function (){
-		token = localStorage.getItem("userToken");
+		//token = localStorage.getItem("userToken");
 		//$http.defaults.headers.common.Authorization = 'Bearer '+token;
-		
-		$http({method:'GET', url:'http://localhost:8080/admin/clientes'})
+		//$http({method:'GET', url:'http://localhost:8080/admin/clientes'})
+		$http({method:'GET', url:'http://localhost:8080/clientes'})
 		.then(function(response){
 			$scope.clientes = response.data;
 			
@@ -47,7 +47,8 @@ appCliente.controller("propostaController", function ($scope, $http){
 	carregarUsuarios = function (){
 		//token = localStorage.getItem("userToken");
 		//$http.defaults.headers.common.Authorization = 'Bearer '+token;
-		$http({method:'GET', url:'http://localhost:8080/admin/Usuarios'})
+		//$http({method:'GET', url:'http://localhost:8080/admin/Usuarios'})
+		$http({method:'GET', url:'http://localhost:8080/Usuarios'})
 		.then(function(response){
 			$scope.usuarios = response.data;
 			
@@ -61,8 +62,8 @@ appCliente.controller("propostaController", function ($scope, $http){
 	
 	$scope.salvarPropostas = function (){		
 		if ($scope.frmProposta.$valid){
-			
-			$http({method:'POST', url:'http://localhost:8080/admin/Propostas', data:$scope.proposta})
+			//$http({method:'POST', url:'http://localhost:8080/admin/Propostas', data:$scope.proposta})
+			$http({method:'POST', url:'http://localhost:8080/Propostas', data:$scope.proposta})
 			.then(function(response){
 				
 				$scope.propostas.push (response.data);
@@ -84,7 +85,8 @@ appCliente.controller("propostaController", function ($scope, $http){
 	}
 	
 	$scope.excluirProposta = function (proposta) {
-		$http({method:'DELETE', url:'http://localhost:8080/admin/Propostas/'+proposta.id})
+		//$http({method:'DELETE', url:'http://localhost:8080/admin/Propostas/'+proposta.id})
+		$http({method:'DELETE', url:'http://localhost:8080/Propostas/'+proposta.id})
 		.then(function(response){
 			//Buscar posicao da Proposta no array
 			 

@@ -21,6 +21,10 @@ appCliente.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'view/cliente-detalhe.html',
 			controller : "clienteDetalheController"
 		})
+		.when('/acessoNegado', {
+            templateUrl: 'view/acessoNegado.html',
+            controller: 'acessoNegadoController'
+        })
 		//.when('/login', {
 		//	templateUrl: 'view/login.html',
 	//		controller : "loginController"
@@ -33,6 +37,9 @@ appCliente.config(['$routeProvider', function($routeProvider) {
 }]);
 
 
+
+
+/**
 appCliente.config(function($httpProvider){
 		
 	$httpProvider.interceptors.push('tokenInterceptor');
@@ -41,3 +48,4 @@ appCliente.config(function($httpProvider){
 	
 });
 
+*/

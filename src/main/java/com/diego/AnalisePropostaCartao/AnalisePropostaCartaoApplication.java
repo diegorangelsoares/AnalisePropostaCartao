@@ -11,6 +11,7 @@ import com.diego.AnalisePropostaCartao.controller.TokenFilter;
 @SpringBootApplication
 public class AnalisePropostaCartaoApplication {
 
+	/**
 	@Bean
 	public FilterRegistrationBean filtroJwt() {
 		FilterRegistrationBean frb = new FilterRegistrationBean();
@@ -19,6 +20,7 @@ public class AnalisePropostaCartaoApplication {
 		return frb;
 		
 	}
+	*/
 	
 	public static void main(String[] args) {
 		SpringApplication.run(AnalisePropostaCartaoApplication.class, args);
