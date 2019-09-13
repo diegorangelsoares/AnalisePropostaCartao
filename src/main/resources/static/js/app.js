@@ -25,10 +25,15 @@ appCliente.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'view/acessoNegado.html',
             controller: 'acessoNegadoController'
         })
-		//.when('/login', {
-		//	templateUrl: 'view/login.html',
-	//		controller : "loginController"
-//		})
+        .when('/usuarios', {
+            templateUrl: 'view/usuario.html',
+            controller: 'usuarioController'
+        })
+		.when('/logout', {
+			//templateUrl: 'index.html',
+			//controller : "mainController",
+			redirectTo:'/'
+		})
 		.otherwise({redirectTo:'/'});	
 	
 	// configure html5 to get links working on jsfiddle

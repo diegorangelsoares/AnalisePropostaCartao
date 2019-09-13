@@ -22,6 +22,13 @@ appCliente.controller("loginController", function ($scope, $http){
 		
 	}
 	
+	$scope.logout = function (){
+		console.log("Chamou o logout. "); 
+			console.log("Sucesso - ");
+			$scope.usuarioLogado = null;
+
+	}
+	
 	
 
 	

@@ -59,7 +59,9 @@ public class LoginController {
 		//String token = Jwts.builder().setSubject(usuarioAutenticado.getNome()).signWith(SignatureAlgorithm.HS256, "diegorangeldoareasdlskmadlkdmsalsdlskmadlkdmsal").setExpiration(new Date(System.currentTimeMillis() + 500 * 60 * 1000)).compact();
 		//return new loginResponse(token);
 		//return new loginResponse(token, usuario);
-		return new loginResponse(usuario);
+		
+		Usuario usu = usuarioService.buscarPorNome(usuario.getNome());
+		return new loginResponse(usu);
 		//return usuario;
 	}
 	

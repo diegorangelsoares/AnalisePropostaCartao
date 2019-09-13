@@ -1,7 +1,5 @@
 # AnalisePropostaCartao
 
-[Conductor]: Desafio para processo seletivo
-
 AnalisePropostaCartao API REST + Angular + Mysql
 API REST Para manter os dados das propostas de Cartões de Crédito.
 
