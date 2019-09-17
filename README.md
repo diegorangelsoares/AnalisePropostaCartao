@@ -25,8 +25,9 @@ Cadastro de Propostas
 Alteração dos Status das Propostas
 
 OBSERVAÇÃO IMPORTANTE:
-	1. As funcionalidades de cadastros estão configuradas para permitir apenas com Login.
-	2. Primeiro faz o login com usuário admin e senha 123 já alimentados no banco
+	Usuario admin (Usuário admin e senha 123) tem acesso a todas as funcionalidades
+	Usuario auditor (Usuário admin e senha 123) tem acesso a todas as funcionalidades
+	Usuario cadastros (Usuário admin e senha 123) só tem acesso a cadastro de cliente e proposta
 
 API REST desenvolvida em Spring Boot
 						 Mavem
@@ -49,7 +50,6 @@ SQLyog Ultimate v9.01
 MySQL - 5.1.46-community : Database - propostas
 *********************************************************************
 */
-
 
 /*!40101 SET NAMES utf8 */;
 
