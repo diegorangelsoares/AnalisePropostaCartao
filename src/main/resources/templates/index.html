@@ -14,7 +14,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>    	
     	
-    	 <!-- Principal CSS do Bootstrap -->
+    	<!-- Principal CSS do Bootstrap -->
     	<link href="./css/bootstrap.min.css" rel="stylesheet">
     	
     	<!-- Estilos customizados para esse template -->
@@ -30,6 +30,7 @@
 		<script src="./js/controller/proposta-auditar-controller.js"></script>
 		<script src="./js/controller/proposta-detalhe-controller.js"></script>
 		<script src="./js/controller/acesso-negado-controller.js"></script>
+		<script src="./js/controller/home-controller.js"></script>
 		<!-- <script src="./js/Interceptor/token-interceptor.js"></script> -->
 		<!-- Materialize CSS 
 		-->
@@ -46,10 +47,10 @@
 			  <div class="collapse navbar-collapse" id="navbarNav">
 			    <ul class="navbar-nav">
 			      <li class="nav-item active">
+			        <!-- <a class="nav-link" href="#/home">Home <span class="sr-only">(Página atual)</span></a> -->
 			        <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <!-- <a class="nav-link" href="#/clientes">Cadastro de Clientes</a> -->
 			        <a class="nav-link" ng-show="$root.usuarioLogado != null" href="#/clientes">Cadastro de Clientes</a> 
 			      </li>
 			      <li class="nav-item">
@@ -61,11 +62,12 @@
 			      <li class="nav-item">
 			        <a class="nav-link" ng-show="$root.usuarioLogado != null && $root.usuarioLogado.nome == 'admin'" href="#/usuarios">Cadastro de Usuários</a>
 			      </li>
+			      <!-- 
 			      <li class="nav-item active">
 			        <a class="nav-link" href="#/logout" ng-click="logout()">Sair</a>
 			      </li>
-			       
-			      <li class="nav-item login">
+			        -->
+			      <li class="nav-item login" style="text-align:right">
 			       		<form >
 					         <a class="nav-link" > 
 									<label>Usuário: </label>
@@ -75,6 +77,7 @@
 									<input type="password" ng-model="usuario.senha">
 							
 									<input type="submit" class="btn btn-secondary" value="Entrar" ng-click="autenticar()">
+									<input type="submit" class="btn btn-secondary" value="Sair" ng-click="logout()">
 									<div></div>
 									{{mensagem}} <!--  - Permissão: {{usuarioLogado.permissao}}  -->
 									<div></div>
@@ -88,9 +91,13 @@
 		</nav>
 	 
 		<div class="generic-container">
-			<h2>Cadastro de Propostas - Cartão VISA</h2>
+			<h1>Cadastro de Propostas - Cartão VISA</h1>
 		</div>
-		
+		<div class="mt-5">
+			<h2>Clientes Cadastrados: {{quantidadeClientes}}   -     Propostas Cadastradas: {{quantidadePropostas}}   -     Usuáios Cadastrados: {{quantidadeUsuarios}} </h2>
+		</div>
+		</br>
+		</br>
 		<div ng-view></div>
 		<div></div>
 		<div></div>

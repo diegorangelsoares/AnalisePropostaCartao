@@ -10,6 +10,8 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 	
 	$scope.mensagem= "";	
 	
+	$scope.quantidadePropostas =0;
+	
 	$scope.autenticar = function (){
 		console.log("CHAMOU AUTENTICAR: "); 
 		$http.post("http://localhost:8080/autenticar",$scope.usuario).then(function(response){ //http://localhost:8080/autenticar
@@ -33,20 +35,63 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 			$location.path('/acessoNegado');
 			$rootScope.usuarioLogado = null;
 			$scope.usuarioLogado = null;
+			$scope.mensagem= "";
 		});	
 		
 		//console.log("NOME: "+$scope.usuario.nome + " SENHA:"+$scope.usuario.senha);
 		
 	}
 	
+	carregarQuantidadePropostas = function (){
+		$http({method:'GET', url:'/api/CountPropostas'})
+		.then(function(response){
+			$scope.quantidadePropostas = response.data;
+			console.log(response.data);
+			console.log(response.status);
+		}, function (response){
+			console.log(response.data);
+			console.log(response.status);
+		});
+		
+	};
+	
+	carregarQuantidadeClientes = function (){
+		$http({method:'GET', url:'/api/CountClientes'})
+		.then(function(response){
+			$scope.quantidadeClientes = response.data;
+			console.log(response.data);
+			console.log(response.status);
+		}, function (response){
+			console.log(response.data);
+			console.log(response.status);
+		});
+		
+	};
+	
+	carregarQuantidadeUsuarios = function (){
+		$http({method:'GET', url:'/api/CountUsuarios'})
+		.then(function(response){
+			$scope.quantidadeUsuarios = response.data;
+			console.log(response.data);
+			console.log(response.status);
+		}, function (response){
+			console.log(response.data);
+			console.log(response.status);
+		});
+		
+	};
+	
 	$scope.logout = function (){
 		console.log("Chamou o logout. "); 
 		$rootScope.usuarioLogado = null;
 		$scope.usuario = null;
+		$scope.mensagem= "";
 
 	}
 	
-	
+	carregarQuantidadePropostas();
+	carregarQuantidadeClientes();
+	carregarQuantidadeUsuarios();
 	
 });
 

@@ -34,6 +34,10 @@ appCliente.config(['$routeProvider', function($routeProvider) {
 			//controller : "mainController",
 			redirectTo:'/'
 		})
+		.when('/home', {
+			templateUrl: 'view/home.html',
+            controller: 'homeController'
+		})
 		.otherwise({redirectTo:'/'});	
 	
 	// configure html5 to get links working on jsfiddle

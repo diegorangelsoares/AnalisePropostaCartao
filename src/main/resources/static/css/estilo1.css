@@ -29,8 +29,13 @@ hr {
 h2 {
 	text-align: center;
 }
+h1 {
+	text-align: center;
+}
 .login{
-	margin-left: 1100px;
+	position: fixed;
+	right: 32px;
+	float: right;
 }
 .campos{
 	margin-left: 15px;

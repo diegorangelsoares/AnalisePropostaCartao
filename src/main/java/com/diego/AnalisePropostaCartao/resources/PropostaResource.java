@@ -1,5 +1,8 @@
 package com.diego.AnalisePropostaCartao.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -21,6 +24,7 @@ import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
 import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 
+
 /**Classe de tratamentos do Proposta
 * @author Diego Rangel
 */
@@ -40,6 +44,34 @@ public class PropostaResource {
 		return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
 	}
 	
+	@GetMapping(path="CountPropostas")
+	public ResponseEntity<?> countPropostas (Pageable pageable){
+		System.out.println("Chamou o retorna quantidade de propostas");
+		long quant = 0;
+		List <Proposta> propostas = uRepository.findAll();
+		for (int i = 0; i < propostas.size(); i++) {
+			quant++;
+		}
+		return new ResponseEntity<>(quant,HttpStatus.OK);
+	}
+	
+	
+	/**Código para retornar historico de combustivel
+	* @author Diego Rangel
+	* @return String - Retorna uma lista de historico
+	*/
+	/*
+	@GetMapping( path="combustiveis/")
+	public ResponseEntity<?> getHitoricoCombustivel(){
+		List <Combustivel> combustiveis = cRepository.findAll();
+		List <String> historico = new ArrayList<>();
+		for (int i = 0; i < combustiveis.size(); i++) {
+			historico.add("Data da Coleta:"+combustiveis.get(i).getDataDaColeta() + " Preço de Venda: "+combustiveis.get(i).getValorDaVenda());
+		}
+		return new ResponseEntity<>(historico	,HttpStatus.OK);
+	}
+	 */
+	
 	@GetMapping( path="Propostas/{id}")
 	public ResponseEntity<?> getprosById(@PathVariable("id") long id){
 		verifyIfprosExists(id);
@@ -49,17 +81,7 @@ public class PropostaResource {
 	
 	@PostMapping(path="Propostas")
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
-		System.out.println("Chamou PropostaResource");
-		/**
-		System.out.println("Chamou save");
-		System.out.println("Proposta para salvar\nData:"+pro.getData()+
-				"\nid_usuario_analista: "+ pro.getUsuario().getId()+",\r\n" + 
-				"\nstatus_documentos:"+pro.getStatusDocumentos()+
-				"\nstatus_proposta:"+pro.getStatusProposta() + 
-				"\nstatusspc:"+pro.getStatusSPC());
-		*/
-		//Usuario usuario = usuarioRepository.findById(pro.getId());
-		//if (usuario.getPermissao().equals(""))
+		//System.out.println("Chamou PropostaResource");
 		uRepository.save(pro);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}

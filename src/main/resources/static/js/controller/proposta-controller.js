@@ -9,6 +9,8 @@ appCliente.controller("propostaController", function ($scope, $http){
 	
 	$scope.usuarios = [];
 	$scope.usuario={}; // o que setar aqui reflete na tela  -> bind com o model
+	
+	//$rootScope.quantidadePropostas = 0;
 
 	//Request alimenta a array proposta com o response da api rest
 	//$scope.carregarPropostas = function (){
@@ -19,7 +21,7 @@ appCliente.controller("propostaController", function ($scope, $http){
 		$http({method:'GET', url:'/Propostas'})
 		.then(function(response){
 			$scope.propostas = response.data;
-			
+			//$scope.quantidadePropostas = $scope.usuario.count();
 			console.log(response.data);
 			console.log(response.status);
 		}, function (response){

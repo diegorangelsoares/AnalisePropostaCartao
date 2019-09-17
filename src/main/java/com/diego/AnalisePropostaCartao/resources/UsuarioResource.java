@@ -1,5 +1,7 @@
 package com.diego.AnalisePropostaCartao.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diego.AnalisePropostaCartao.erro.ResourceNotFoundException;
+import com.diego.AnalisePropostaCartao.model.Cliente;
 import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 
@@ -40,6 +43,17 @@ public class UsuarioResource {
 		verifyIfUsersExists(id);
 		Usuario user = uRepository.findById(id);
 		return new ResponseEntity<>(user,HttpStatus.OK);
+	}
+	
+	@GetMapping(path="CountUsuarios")
+	public ResponseEntity<?> countUsuarios (Pageable pageable){
+		System.out.println("Chamou o retorna quantidade de Usuarios");
+		long quant = 0;
+		List <Usuario> Usuarios = uRepository.findAll();
+		for (int i = 0; i < Usuarios.size(); i++) {
+			quant++;
+		}
+		return new ResponseEntity<>(quant,HttpStatus.OK);
 	}
 	
 	@PostMapping(path="Usuarios")

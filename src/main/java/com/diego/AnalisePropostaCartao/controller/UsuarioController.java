@@ -27,8 +27,16 @@ public class UsuarioController {
 	//End point
 	@RequestMapping(method = RequestMethod.POST, value="/Usuarios",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
-		Usuario usuarioCadastrado = usuarioService.cadastrar(usuario);
-		return new ResponseEntity<Usuario>(usuarioCadastrado, HttpStatus.OK);
+		Usuario TemUsuarioComMesmoNome = usuarioService.buscarPorNome(usuario.getNome());
+		
+		if (TemUsuarioComMesmoNome != null){
+			//Não existe ninguem com esse nome
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}else {
+			//Existe usuario com esse nome
+			Usuario usuarioCadastrado = usuarioService.cadastrar(usuario);		
+			return new ResponseEntity<Usuario>(usuarioCadastrado, HttpStatus.OK);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/Usuarios",produces = MediaType.APPLICATION_JSON_VALUE)

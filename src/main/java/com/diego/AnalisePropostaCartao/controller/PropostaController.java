@@ -46,6 +46,14 @@ public class PropostaController {
 		Collection< Proposta> PropostasBuscados= PropostaService.buscarTodos();
 		return new ResponseEntity<>(PropostasBuscados, HttpStatus.OK);
 	}
+
+	/*
+	@RequestMapping(method = RequestMethod.GET, value="/CountPropostas",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity <Collection< long>> retornaQuantidadeDePropostas() {
+		Collection <long> quant = PropostaService.retornaQuantidadeDePropostasCadastradas();
+		return new ResponseEntity<>(quant, HttpStatus.OK);
+	}
+	*/
 	
 	@RequestMapping(method = RequestMethod.DELETE, value="/Propostas/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection< Proposta>> excluirProposta(@PathVariable Integer id) {

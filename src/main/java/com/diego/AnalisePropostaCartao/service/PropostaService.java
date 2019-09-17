@@ -29,7 +29,7 @@ public class PropostaService {
 		return PropostaRepository.save(Proposta);
 	}
 	
-	public Collection< Proposta> buscarTodos(){
+	public Collection<Proposta> buscarTodos(){
 		return PropostaRepository.findAll();
 	}
 	
@@ -46,6 +46,11 @@ public class PropostaService {
 			}
 		}
 		return pro;
+	}
+	
+	public long retornaQuantidadeDePropostasCadastradas () {
+		long quantidade = PropostaRepository.count();
+		return quantidade;
 	}
 	
 	public Proposta buscarPorIdCliente(long id) {
