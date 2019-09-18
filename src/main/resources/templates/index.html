@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="appCliente">
 	<head>
+	
 		<meta charset="UTF-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+
+		
 		
 		
 		
@@ -41,7 +46,7 @@
 	
 		  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			  <a class="navbar-brand" href="#"></a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+			  <button class="navbar-toggler menu" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarNav">
@@ -94,7 +99,9 @@
 			<h1>Cadastro de Propostas - Cartão VISA</h1>
 		</div>
 		<div class="mt-5">
-			<h2>Clientes Cadastrados: {{quantidadeClientes}}   -     Propostas Cadastradas: {{quantidadePropostas}}   -     Usuáios Cadastrados: {{quantidadeUsuarios}} </h2>
+			<h2>			
+				{{mensagemQuantidades}}
+			</h2>
 		</div>
 		</br>
 		</br>

@@ -11,6 +11,14 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 	$scope.mensagem= "";	
 	
 	$scope.quantidadePropostas =0;
+	$scope.quantidadeUsuarios = 0;
+	$scope.quantidadeClientes = 0;
+	
+	$scope.mensagemQuantidadePropostas ="";
+	$scope.mensagemQuantidadeUsuarios = "";
+	$scope.mensagemQuantidadeClientes = "";
+	
+	$scope.mensagemQuantidades= "";
 	
 	$scope.autenticar = function (){
 		console.log("CHAMOU AUTENTICAR: "); 
@@ -46,6 +54,7 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 		$http({method:'GET', url:'/api/CountPropostas'})
 		.then(function(response){
 			$scope.quantidadePropostas = response.data;
+			$scope.mensagemQuantidades = $scope.mensagemQuantidades + " Propostas Cadastradas: "+$scope.quantidadePropostas + "  -  ";
 			console.log(response.data);
 			console.log(response.status);
 		}, function (response){
@@ -59,6 +68,7 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 		$http({method:'GET', url:'/api/CountClientes'})
 		.then(function(response){
 			$scope.quantidadeClientes = response.data;
+			$scope.mensagemQuantidades = $scope.mensagemQuantidades + " Clientes Cadastrados: "+$scope.quantidadeClientes + "  -  ";
 			console.log(response.data);
 			console.log(response.status);
 		}, function (response){
@@ -72,6 +82,7 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 		$http({method:'GET', url:'/api/CountUsuarios'})
 		.then(function(response){
 			$scope.quantidadeUsuarios = response.data;
+			$scope.mensagemQuantidades = $scope.mensagemQuantidades + " Usuários Cadastrados: "+$scope.quantidadeUsuarios;
 			console.log(response.data);
 			console.log(response.status);
 		}, function (response){
@@ -89,36 +100,11 @@ appCliente.controller("mainController", function($scope, $route, $location, $rou
 
 	}
 	
+	
 	carregarQuantidadePropostas();
 	carregarQuantidadeClientes();
 	carregarQuantidadeUsuarios();
 	
-});
-
-/**
-//criacao de constrollers
-appCliente.controller("loginController", function ($scope, $http){
-	
-	$scope.usuario={};
-	
-	//$scope.token = "";
-	
-	$scope.autenticar = function (){
-		//console.log("CHAMOU AUTENTICAR: "); 
-		$http.post("/autenticar",$scope.usuario).then(function(response){ //http://localhost:8080/autenticar
-			console.log("Sucesso - "+response);
-			//$scope.token = response.data.token;
-			//localStorage.setItem("userToken", response.data.token);
-			
-		},function(response){
-			console.log("Falha - "+response);
-			
-		});	
-		
-		//console.log("NOME: "+$scope.usuario.nome + " SENHA:"+$scope.usuario.senha);
-		
-	}
-
 	
 });
-*/
+
