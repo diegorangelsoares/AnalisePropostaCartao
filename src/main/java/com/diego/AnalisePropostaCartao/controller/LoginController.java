@@ -37,13 +37,13 @@ public class LoginController {
 	//End point
 	@RequestMapping(method = RequestMethod.POST, value="/autenticar",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public loginResponse autenticar(@RequestBody Usuario usuario) throws ServletException {
-	//public loginResponse autenticar(@RequestBody Usuario usuario) throws ServletException {
-		System.out.println("Usuario: "+usuario.getNome());
+
+		//System.out.println("Usuario: "+usuario.getNome());
 		if ( usuario.getNome() == null) {
 			throw new ServletException("Nome e senha obrigatório.");
 		}
 		Usuario usuarioAutenticado = usuarioService.buscarPorNome(usuario.getNome());
-		System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
+		//System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
 		
 		//consulta no banco
 		//System.out.println("Usuario: "+usuario.getNome());
