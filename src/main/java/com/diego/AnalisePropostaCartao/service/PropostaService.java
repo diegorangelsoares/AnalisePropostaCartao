@@ -11,6 +11,10 @@ import com.diego.AnalisePropostaCartao.controller.DataController;
 import com.diego.AnalisePropostaCartao.model.Proposta;
 import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
 
+/**
+ * Repositório de Propostas
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Service
 public class PropostaService {
 

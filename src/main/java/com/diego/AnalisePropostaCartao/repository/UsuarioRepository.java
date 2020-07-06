@@ -9,7 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import com.diego.AnalisePropostaCartao.model.Usuario;
 
-
+/**
+ * Repositório de usuários
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 

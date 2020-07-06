@@ -12,7 +12,10 @@ import com.diego.AnalisePropostaCartao.model.Cliente;
 import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 
-
+/**
+ * Repositório de usuarios
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Service
 public class UsuarioService{
 	

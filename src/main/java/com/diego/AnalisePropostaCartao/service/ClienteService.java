@@ -12,7 +12,10 @@ import com.diego.AnalisePropostaCartao.model.Proposta;
 import com.diego.AnalisePropostaCartao.repository.ClienteRepository;
 import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
 
-
+/**
+ * Service de clientes
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Service
 public class ClienteService {
 
@@ -68,7 +71,7 @@ public class ClienteService {
 		if(pro == null) {
 			System.out.println("Cliente não possui contrato");
 		}else {
-			System.out.println("Cliente possui contrato e não pode ser excluido. Contrato: " + pro.getId());
+			//System.out.println("Cliente possui contrato e não pode ser excluido. Contrato: " + pro.getId());
 			throw new ResourceNotFoundException("Cliente possui contrato e não pode ser excluido. Contrato: " + pro.getId());
 			
 		}

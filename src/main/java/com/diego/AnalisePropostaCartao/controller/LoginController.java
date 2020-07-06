@@ -45,6 +45,7 @@ public class LoginController {
 		if ( usuario.getNome() == null) {
 			throw new ServletException("Nome e senha obrigatório.");
 		}
+
 		Usuario usuarioAutenticado = usuarioService.buscarPorNome(usuario.getNome());
 		//System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
 		
@@ -53,6 +54,7 @@ public class LoginController {
 		if (usuarioAutenticado == null) {
 			throw new ServletException("Usuário não encontrado.");
 		}
+
 		//Verificando senha criptografada
 		//if (!convertPasswordToMD5.encripta(usuarioAutenticado.getSenha()).equals(convertPasswordToMD5.encripta(usuario.getSenha()))) {
 		if (!usuarioAutenticado.getSenha().equals(usuario.getSenha())) {

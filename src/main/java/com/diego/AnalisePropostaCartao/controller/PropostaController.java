@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.AnalisePropostaCartao.model.Proposta;
 import com.diego.AnalisePropostaCartao.service.PropostaService;
 
+/**
+ * Controller de propostas
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 //@RequestMapping ("/admin")
-
 @RestController
 @RequestMapping ("/")
 public class PropostaController {

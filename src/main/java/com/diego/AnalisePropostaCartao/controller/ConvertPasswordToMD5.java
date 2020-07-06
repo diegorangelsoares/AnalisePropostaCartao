@@ -4,6 +4,10 @@ import java.security.MessageDigest;
 import sun.misc.BASE64Encoder;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Tratamento de criptografia
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 public class ConvertPasswordToMD5 {
 	
 	public ConvertPasswordToMD5() {

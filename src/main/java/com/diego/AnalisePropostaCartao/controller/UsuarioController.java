@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diego.AnalisePropostaCartao.model.Usuario;
 import com.diego.AnalisePropostaCartao.service.UsuarioService;
 
+/**
+ * Controller do objeto Usuário
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 //@RequestMapping ("/admin")
-
 @RestController
 @RequestMapping ("/")
 public class UsuarioController {

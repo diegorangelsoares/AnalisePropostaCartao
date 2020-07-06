@@ -4,10 +4,9 @@ package com.diego.AnalisePropostaCartao.erro;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**Classe que trata o exception
-* @author Diego Rangel
-* @return -
-*/
+	/**Classe que trata as exceções
+	* @author Diego Rangel - diegorangeljpa@gmail.com
+	*/
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public class ResourceNotFoundException extends RuntimeException {
 	   /**

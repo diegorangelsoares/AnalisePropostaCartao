@@ -7,7 +7,10 @@ import org.springframework.context.annotation.Bean;
 
 import com.diego.AnalisePropostaCartao.controller.TokenFilter;
 
-
+/**
+ * Classe main do projeto
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @SpringBootApplication
 public class AnalisePropostaCartaoApplication {
 
