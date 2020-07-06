@@ -52,7 +52,7 @@ public class LoginController {
 		//consulta no banco
 		//System.out.println("Usuario: "+usuario.getNome());
 		if (usuarioAutenticado == null) {
-			throw new ServletException("Usuário não encontrado.");
+			throw new ServletException("Usuário ou senha inválido.");
 		}
 
 		//Verificando senha criptografada
