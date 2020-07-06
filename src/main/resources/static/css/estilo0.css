@@ -17,7 +17,7 @@ body {
   margin-bottom: 4rem;
 }
 
-/* Já que usamos posicionamento de imagens, precisaremos fazer alguns ajustes na legenda */
+/* J? que usamos posicionamento de imagens, precisaremos fazer alguns ajustes na legenda */
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
@@ -37,10 +37,10 @@ body {
 }
 
 
-/* CONTEÚDO DO MARKETING
+/* CONTE?DO DO MARKETING
 -------------------------------------------------- */
 
-/* Alinha, centralmente, o texto dentro das três colunas abaixo do carousel */
+/* Alinha, centralmente, o texto dentro das tr?s colunas abaixo do carousel */
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
@@ -58,10 +58,10 @@ body {
 ------------------------- */
 
 .featurette-divider {
-  margin: 5rem 0; /* Espaça o elemento <hr> mais */
+  margin: 5rem 0; /* Espa?a o elemento <hr> mais */
 }
 
-/* Afina os cabeçalhos de marketing */
+/* Afina os cabe?alhos de marketing */
 .featurette-heading {
   font-weight: 300;
   line-height: 1;
@@ -73,7 +73,7 @@ body {
 -------------------------------------------------- */
 
 @media (min-width: 40em) {
-  /* Aumenta o tamanho do conteúdo do carousel */
+  /* Aumenta o tamanho do conte?do do carousel */
   .carousel-caption p {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
