@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="tab_usuario")
 public class Usuario {
@@ -18,8 +17,7 @@ public class Usuario {
 	private String senha;
 	public String permissao;
 	
-	
-	
+
 	public Usuario() {
 	}
 
@@ -62,14 +60,6 @@ public class Usuario {
 	public void setPermissao(String permissao) {
 		this.permissao = permissao;
 	}
-	
-	
-	
-	
-	
-	
-	
 
-	
 	
 }

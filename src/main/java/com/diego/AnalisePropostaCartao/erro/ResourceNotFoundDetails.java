@@ -61,8 +61,5 @@ public class ResourceNotFoundDetails extends ErrorDetails {
 		}
 	}
 	
-	
 
-	
-	
 }

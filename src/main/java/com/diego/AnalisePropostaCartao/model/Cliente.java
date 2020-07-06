@@ -25,8 +25,6 @@ public class Cliente {
 		
 	}
 
-	
-
 	public Cliente(long id, String nome, String cpf, String email) {
 		super();
 		this.id = id;
@@ -35,19 +33,13 @@ public class Cliente {
 		this.email = email;
 	}
 
-
-
 	public String getCpf() {
 		return cpf;
 	}
 
-
-
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-
 
 	public String getEmail() {
 		return email;
@@ -73,7 +65,5 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-
-	
 
 }
