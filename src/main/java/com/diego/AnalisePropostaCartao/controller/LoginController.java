@@ -25,7 +25,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-
+/**
+ * Controller autenticador
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @RestController
 public class LoginController {
 	
