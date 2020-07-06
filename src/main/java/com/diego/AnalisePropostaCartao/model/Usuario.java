@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Classe do objeto Usuário
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Entity
 @Table(name="tab_usuario")
 public class Usuario {

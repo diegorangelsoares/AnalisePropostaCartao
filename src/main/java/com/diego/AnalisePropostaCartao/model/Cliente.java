@@ -8,7 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ * Classe do objeto Cliente
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Entity
 @Table(name="TAB_CLIENTE")
 public class Cliente {

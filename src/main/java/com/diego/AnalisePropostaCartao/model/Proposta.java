@@ -10,7 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ * Classe do objeto Proposta
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Entity
 @Table(name="TAB_PROPOSTA")
 public class Proposta {
