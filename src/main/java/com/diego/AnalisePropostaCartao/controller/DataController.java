@@ -13,10 +13,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Classe para tratamento de datas
  * @author Diego Rangel  
  */
-
 public class DataController {
     
     private String data2;
