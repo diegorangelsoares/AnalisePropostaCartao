@@ -49,7 +49,7 @@ public class LoginController {
 		Usuario usuarioAutenticado = usuarioService.buscarPorNome(usuario.getNome());
 		//System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
 		
-		//consulta no banco
+		//Usuário não pode ser null
 		//System.out.println("Usuario: "+usuario.getNome());
 		if (usuarioAutenticado == null) {
 			throw new ServletException("Usuário ou senha inválido.");
@@ -65,8 +65,8 @@ public class LoginController {
 		//return new loginResponse(token);
 		//return new loginResponse(token, usuario);
 		
-		Usuario usu = usuarioService.buscarPorNome(usuario.getNome());
-		return new loginResponse(usu);
+		//Usuario usu = usuarioService.buscarPorNome(usuario.getNome());
+		return new loginResponse(usuarioAutenticado);
 		//return usuario;
 	}
 	
