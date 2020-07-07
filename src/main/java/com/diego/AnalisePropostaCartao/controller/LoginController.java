@@ -50,14 +50,11 @@ public class LoginController {
 		//System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
 		
 		//Usuário não pode ser null
-		//System.out.println("Usuario: "+usuario.getNome());
 		if (usuarioAutenticado == null) {
 			throw new ServletException("Usuário ou senha inválido.");
 		}
 
-		//Verificando senha criptografada
-		//if (!convertPasswordToMD5.encripta(usuarioAutenticado.getSenha()).equals(convertPasswordToMD5.encripta(usuario.getSenha()))) {
-		if (!usuarioAutenticado.getSenha().equals(usuario.getSenha())) {
+		if (!usuarioAutenticado.getSenha().equals(convertPasswordToMD5.encripta(usuario.getSenha()))) {
 			throw new ServletException("Usuário ou senha inválido.");
 		}
 
