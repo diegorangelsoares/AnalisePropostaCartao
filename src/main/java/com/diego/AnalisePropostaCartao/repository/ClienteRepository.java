@@ -18,7 +18,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	@Query("SELECT c FROM TAB_CLIENTE c WHERE LOWER(c.id)")
     Cliente findByID(@Param("searchTerm") Integer searchTerm);
 	*/
-
 	
 	Cliente findByNome(String nome);
 	
