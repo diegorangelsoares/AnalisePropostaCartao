@@ -87,7 +87,7 @@ public class EnderecoService {
             json = jsonSb.toString();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getCause());
         }
 
         return json;
