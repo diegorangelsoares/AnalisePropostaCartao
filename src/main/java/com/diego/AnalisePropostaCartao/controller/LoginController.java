@@ -25,7 +25,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-
+/**
+ * Controller autenticador
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @RestController
 public class LoginController {
 	
@@ -37,22 +40,21 @@ public class LoginController {
 	//End point
 	@RequestMapping(method = RequestMethod.POST, value="/autenticar",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public loginResponse autenticar(@RequestBody Usuario usuario) throws ServletException {
-	//public loginResponse autenticar(@RequestBody Usuario usuario) throws ServletException {
-		System.out.println("Usuario: "+usuario.getNome());
+
+		//System.out.println("Usuario: "+usuario.getNome());
 		if ( usuario.getNome() == null) {
 			throw new ServletException("Nome e senha obrigatório.");
 		}
+
 		Usuario usuarioAutenticado = usuarioService.buscarPorNome(usuario.getNome());
-		System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
+		//System.out.println("Chama a funcao usuarioService.buscarPorNome(usuario.getNome()) Resultado Usuario: "+usuarioAutenticado.getNome()+" Senha: "+usuarioAutenticado.getSenha());
 		
-		//consulta no banco
-		//System.out.println("Usuario: "+usuario.getNome());
+		//Usuário não pode ser null
 		if (usuarioAutenticado == null) {
-			throw new ServletException("Usuário não encontrado.");
+			throw new ServletException("Usuário ou senha inválido.");
 		}
-		//Verificando senha criptografada
-		//if (!convertPasswordToMD5.encripta(usuarioAutenticado.getSenha()).equals(convertPasswordToMD5.encripta(usuario.getSenha()))) {
-		if (!usuarioAutenticado.getSenha().equals(usuario.getSenha())) {
+
+		if (!usuarioAutenticado.getSenha().equals(convertPasswordToMD5.encripta(usuario.getSenha()))) {
 			throw new ServletException("Usuário ou senha inválido.");
 		}
 
@@ -60,13 +62,10 @@ public class LoginController {
 		//return new loginResponse(token);
 		//return new loginResponse(token, usuario);
 		
-		Usuario usu = usuarioService.buscarPorNome(usuario.getNome());
-		return new loginResponse(usu);
+		//Usuario usu = usuarioService.buscarPorNome(usuario.getNome());
+		return new loginResponse(usuarioAutenticado);
 		//return usuario;
 	}
 	
-	
-		
-		
 
 }

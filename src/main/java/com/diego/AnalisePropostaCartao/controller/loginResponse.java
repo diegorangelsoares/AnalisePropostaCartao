@@ -2,6 +2,10 @@ package com.diego.AnalisePropostaCartao.controller;
 
 import com.diego.AnalisePropostaCartao.model.Usuario;
 
+/**
+ * Response responável pelo login
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 public class loginResponse {
 
 	//public String token;
@@ -38,9 +42,5 @@ public class loginResponse {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-	
-	
-	
 	
 }

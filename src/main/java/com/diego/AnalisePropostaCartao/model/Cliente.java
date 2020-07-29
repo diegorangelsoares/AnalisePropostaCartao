@@ -8,7 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ * Classe do objeto Cliente
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Entity
 @Table(name="TAB_CLIENTE")
 public class Cliente {
@@ -25,8 +28,6 @@ public class Cliente {
 		
 	}
 
-	
-
 	public Cliente(long id, String nome, String cpf, String email) {
 		super();
 		this.id = id;
@@ -35,19 +36,13 @@ public class Cliente {
 		this.email = email;
 	}
 
-
-
 	public String getCpf() {
 		return cpf;
 	}
 
-
-
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-
 
 	public String getEmail() {
 		return email;
@@ -73,7 +68,5 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-
-	
 
 }

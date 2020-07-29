@@ -47,7 +47,6 @@ public class UsuarioResource {
 	
 	@GetMapping(path="CountUsuarios")
 	public ResponseEntity<?> countUsuarios (Pageable pageable){
-		System.out.println("Chamou o retorna quantidade de Usuarios");
 		long quant = 0;
 		List <Usuario> Usuarios = uRepository.findAll();
 		for (int i = 0; i < Usuarios.size(); i++) {

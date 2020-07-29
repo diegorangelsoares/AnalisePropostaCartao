@@ -9,8 +9,8 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Diego Rangel  
+ * Classe para tratamento de horas
+ * @author Diego Rangel - diegorangeljpa@gmail.com
  */
 public class HoraController {
     

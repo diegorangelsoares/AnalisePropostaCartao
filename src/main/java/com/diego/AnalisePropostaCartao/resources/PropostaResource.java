@@ -35,10 +35,7 @@ public class PropostaResource {
 
 	@Autowired
 	private PropostaRepository uRepository;
-	
-	//@Autowired
-	//private UsuarioRepository usuarioRepository;
-	
+
 	@GetMapping(path="Propostas")
 	public ResponseEntity<?> listAll(Pageable pageable){
 		return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
@@ -46,7 +43,6 @@ public class PropostaResource {
 	
 	@GetMapping(path="CountPropostas")
 	public ResponseEntity<?> countPropostas (Pageable pageable){
-		System.out.println("Chamou o retorna quantidade de propostas");
 		long quant = 0;
 		List <Proposta> propostas = uRepository.findAll();
 		for (int i = 0; i < propostas.size(); i++) {
@@ -56,7 +52,7 @@ public class PropostaResource {
 	}
 	
 	
-	/**Código para retornar historico de combustivel
+	/**Código para retornar historico
 	* @author Diego Rangel
 	* @return String - Retorna uma lista de historico
 	*/
@@ -81,7 +77,6 @@ public class PropostaResource {
 	
 	@PostMapping(path="Propostas")
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
-		//System.out.println("Chamou PropostaResource");
 		uRepository.save(pro);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}

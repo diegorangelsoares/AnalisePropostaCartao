@@ -11,9 +11,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.diego.AnalisePropostaCartao.erro.ResourceNotFoundDetails;
 import com.diego.AnalisePropostaCartao.erro.ResourceNotFoundException;
 
-
-
-
+/**
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 

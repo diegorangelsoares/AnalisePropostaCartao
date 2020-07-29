@@ -18,7 +18,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
-
+/**
+ * Classe do token filter
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 //public class TokenFilter extends GenericFilterBean{
 public class TokenFilter  {
 	/**

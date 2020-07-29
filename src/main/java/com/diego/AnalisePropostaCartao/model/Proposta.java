@@ -10,7 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ * Classe do objeto Proposta
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Entity
 @Table(name="TAB_PROPOSTA")
 public class Proposta {
@@ -30,11 +33,9 @@ public class Proposta {
 	@ManyToOne
 	@JoinColumn
 	public Usuario usuario;
-	
 
 	public Proposta() {
 	}
-
 
 	public Proposta(long id, String data, String statusProposta, String statusSPC, String statusDocumentos,
 			Cliente cliente, Usuario usuario) {
@@ -53,76 +54,61 @@ public class Proposta {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 
 	public String getData() {
 		return data;
 	}
 
-
 	public void setData(String data) {
 		this.data = data;
 	}
-
 
 	public String getStatusProposta() {
 		return statusProposta;
 	}
 
-
 	public void setStatusProposta(String statusProposta) {
 		this.statusProposta = statusProposta;
 	}
-
 
 	public String getStatusSPC() {
 		return statusSPC;
 	}
 
-
 	public void setStatusSPC(String statusSPC) {
 		this.statusSPC = statusSPC;
 	}
-
 
 	public String getStatusDocumentos() {
 		return statusDocumentos;
 	}
 
-
 	public void setStatusDocumentos(String statusDocumentos) {
 		this.statusDocumentos = statusDocumentos;
 	}
-
 
 	public Cliente getCliente() {
 		return cliente;
 	}
 
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
 
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
-
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	
 
 }

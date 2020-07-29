@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.diego.AnalisePropostaCartao.model.Cliente;
 import com.diego.AnalisePropostaCartao.model.Proposta;
 
-
+/**
+ * Repositório de Propostas
+ * @author Diego Rangel - diegorangeljpa@gmail.com
+ */
 @Repository
 public interface PropostaRepository extends JpaRepository<Proposta, Integer>{
 

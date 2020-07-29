@@ -51,7 +51,6 @@ public class ClienteResource {
 		
 		@GetMapping(path="CountClientes")
 		public ResponseEntity<?> countClientes (Pageable pageable){
-			System.out.println("Chamou o retorna quantidade de Clientes");
 			long quant = 0;
 			List <Cliente> clientes = uRepository.findAll();
 			for (int i = 0; i < clientes.size(); i++) {
@@ -63,7 +62,6 @@ public class ClienteResource {
 		@PostMapping(path="Clientes")
 		public ResponseEntity<?> save(@Validated @RequestBody Cliente cli){
 			uRepository.save(cli);
-			//System.out.println("Chamou funcao salvar cliente");
 			return new ResponseEntity<>(cli,HttpStatus.OK);
 		}
 		
@@ -89,8 +87,6 @@ public class ClienteResource {
 				throw new ResourceNotFoundException("Cliente não encontrado para o Id: " + id);
 		}
 		
-		
-		
-		
+
 	
 }
