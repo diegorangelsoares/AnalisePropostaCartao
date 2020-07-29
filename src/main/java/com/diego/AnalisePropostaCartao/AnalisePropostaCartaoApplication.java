@@ -32,6 +32,9 @@ public class AnalisePropostaCartaoApplication {
 				"Link de acesso ao Swagger http://localhost:8080/swagger-ui.html\n" +
 				"\n" +
 				"Link de acesso a interface Angular http://localhost:8080/#/\n" +
+				"\n"+
+				"\n" +
+				"Link de teste http://api-diegorangel.ddns.net:8080/#/\n" +
 				"\n");
 
 
