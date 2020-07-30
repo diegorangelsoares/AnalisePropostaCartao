@@ -66,7 +66,7 @@ public class EnderecoService {
             if (entrada.getKey().equals("gia")){
                 endereco.setGia(entrada.getValue());
             }
-            endereco.setLogradouro(cep+"");
+            endereco.setCep(cep+"");
         }
         return endereco;
     }
