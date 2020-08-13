@@ -22,9 +22,3 @@ public class CriptografarSenha {
     }
 
 }
-
-/*
-2ETIPWZa1R4+LJRW3nahQw==
-        Senha digitada: 123
-        Senha digitada criptografada: ICy5YqxZB1uWSwcVLSNLcA==
-        */
