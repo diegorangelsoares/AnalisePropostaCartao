@@ -1,7 +1,9 @@
 package com.diego.AnalisePropostaCartao.resources;
 
+import java.util.Collection;
 import java.util.List;
 
+import com.diego.AnalisePropostaCartao.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -31,24 +33,25 @@ import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 public class UsuarioResource {
 	
 	@Autowired
-	private UsuarioRepository uRepository;
+	private UsuarioService usuarioService;
+	//private UsuarioRepository uRepository;
 	
 	@GetMapping(path="Usuarios")
 	public ResponseEntity<?> listAll(Pageable pageable){
-		return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
+		return new ResponseEntity<>(usuarioService.buscarTodos(),HttpStatus.OK);
 	}
 	
 	@GetMapping( path="Usuarios/{id}")
 	public ResponseEntity<?> getUsersById(@PathVariable("id") long id){
 		verifyIfUsersExists(id);
-		Usuario user = uRepository.findById(id);
+		Usuario user = usuarioService.buscarPorId(id);
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 	
 	@GetMapping(path="CountUsuarios")
 	public ResponseEntity<?> countUsuarios (Pageable pageable){
 		long quant = 0;
-		List <Usuario> Usuarios = uRepository.findAll();
+		Collection<Usuario> Usuarios = usuarioService.buscarTodos();
 		for (int i = 0; i < Usuarios.size(); i++) {
 			quant++;
 		}
@@ -57,27 +60,27 @@ public class UsuarioResource {
 	
 	@PostMapping(path="Usuarios")
 	public ResponseEntity<?> save(@Validated @RequestBody Usuario user){
-		uRepository.save(user);
+		usuarioService.cadastrar(user);
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 	
 	@DeleteMapping(path="Usuarios/{id}")
 	public ResponseEntity<?> delete(@PathVariable(name="id") long id){
 		verifyIfUsersExists(id);
-		Usuario user = uRepository.findById(id);
-		uRepository.delete(user);
+		Usuario user = usuarioService.buscarPorId(id);
+		usuarioService.excluir(user);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping(path="Usuarios")
 	public ResponseEntity<?> update(@RequestBody Usuario user){
 		verifyIfUsersExists(user.getId());
-		uRepository.save(user);
+		usuarioService.cadastrar(user);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	private void verifyIfUsersExists(long id){
-		if(uRepository.findById(id) == null)
+		if(usuarioService.buscarPorId(id) == null)
 			throw new ResourceNotFoundException("Usuario não encontrado para o Id: " + id);
 	}
 
