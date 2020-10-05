@@ -1,8 +1,10 @@
 package com.diego.AnalisePropostaCartao.resources;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import com.diego.AnalisePropostaCartao.service.PropostaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -34,17 +36,18 @@ import com.diego.AnalisePropostaCartao.repository.UsuarioRepository;
 public class PropostaResource {
 
 	@Autowired
-	private PropostaRepository uRepository;
+	private PropostaService propostaService;
+	//private PropostaRepository uRepository;
 
 	@GetMapping(path="Propostas")
 	public ResponseEntity<?> listAll(Pageable pageable){
-		return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
+		return new ResponseEntity<>(propostaService.buscarTodos(),HttpStatus.OK);
 	}
 	
 	@GetMapping(path="CountPropostas")
 	public ResponseEntity<?> countPropostas (Pageable pageable){
 		long quant = 0;
-		List <Proposta> propostas = uRepository.findAll();
+		Collection<Proposta> propostas = propostaService.buscarTodos();
 		for (int i = 0; i < propostas.size(); i++) {
 			quant++;
 		}
@@ -71,28 +74,28 @@ public class PropostaResource {
 	@GetMapping( path="Propostas/{id}")
 	public ResponseEntity<?> getprosById(@PathVariable("id") long id){
 		verifyIfprosExists(id);
-		Proposta pro = uRepository.findById(id);
+		Proposta pro = propostaService.buscarPorId(id);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}
 	
 	@PostMapping(path="Propostas")
 	public ResponseEntity<?> save(@Validated @RequestBody Proposta pro){
-		uRepository.save(pro);
+		propostaService.cadastrar(pro);
 		return new ResponseEntity<>(pro,HttpStatus.OK);
 	}
 	
 	@DeleteMapping(path="Propostas/{id}")
 	public ResponseEntity<?> delete(@PathVariable(name="id") long id){
 		verifyIfprosExists(id);
-		Proposta pro = uRepository.findById(id);
-		uRepository.delete(pro);
+		Proposta pro = propostaService.buscarPorId(id);
+		propostaService.excluir(pro);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping(path="Propostas")
 	public ResponseEntity<?> update(@RequestBody Proposta pro){
 		verifyIfprosExists(pro.getId());
-		uRepository.save(pro);
+		propostaService.cadastrar(pro);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -100,7 +103,7 @@ public class PropostaResource {
 	public ResponseEntity<?> AprovaProposta(@RequestBody Proposta pro){
 		verifyIfprosExists(pro.getId());
 		pro.setStatusProposta("aprovada");
-		uRepository.save(pro);
+		propostaService.cadastrar(pro);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -108,7 +111,7 @@ public class PropostaResource {
 	public ResponseEntity<?> AprovaSPCProposta(@RequestBody Proposta pro){
 		verifyIfprosExists(pro.getId());
 		pro.setStatusSPC("aprovada");
-		uRepository.save(pro);
+		propostaService.cadastrar(pro);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
@@ -116,12 +119,12 @@ public class PropostaResource {
 	public ResponseEntity<?> AprovaDocumentosProposta(@RequestBody Proposta pro){
 		verifyIfprosExists(pro.getId());
 		pro.setStatusDocumentos("aprovada");
-		uRepository.save(pro);
+		propostaService.cadastrar(pro);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	private void verifyIfprosExists(long id){
-		if(uRepository.findById(id) == null)
+		if(propostaService.buscarPorId(id) == null)
 			throw new ResourceNotFoundException("Proposta não encontrado para o Id: " + id);
 	}
 	

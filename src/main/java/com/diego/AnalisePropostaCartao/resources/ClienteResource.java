@@ -1,7 +1,9 @@
 package com.diego.AnalisePropostaCartao.resources;
 
+import java.util.Collection;
 import java.util.List;
 
+import com.diego.AnalisePropostaCartao.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -32,27 +34,24 @@ import com.diego.AnalisePropostaCartao.repository.PropostaRepository;
 public class ClienteResource {
 
 		@Autowired
-		private ClienteRepository uRepository;
-		
-		@Autowired
-		private PropostaRepository pRepository;
-		
+		private ClienteService clienteService;
+
 		@GetMapping(path="Clientes")
 		public ResponseEntity<?> listAll(Pageable pageable){
-			return new ResponseEntity<>(uRepository.findAll(pageable),HttpStatus.OK);
+			return new ResponseEntity<>(clienteService.buscarTodos(),HttpStatus.OK);
 		}
 		
 		@GetMapping( path="Clientes/{id}")
 		public ResponseEntity<?> getclisById(@PathVariable("id") long id){
 			verifyIfclisExists(id);
-			Cliente cli = uRepository.findById(id);
+			Cliente cli = clienteService.buscarPorId(id);
 			return new ResponseEntity<>(cli,HttpStatus.OK);
 		}
 		
 		@GetMapping(path="CountClientes")
 		public ResponseEntity<?> countClientes (Pageable pageable){
 			long quant = 0;
-			List <Cliente> clientes = uRepository.findAll();
+			Collection< Cliente> clientes = clienteService.buscarTodos();
 			for (int i = 0; i < clientes.size(); i++) {
 				quant++;
 			}
@@ -61,7 +60,7 @@ public class ClienteResource {
 		
 		@PostMapping(path="Clientes")
 		public ResponseEntity<?> save(@Validated @RequestBody Cliente cli){
-			uRepository.save(cli);
+			clienteService.cadastrar(cli);
 			return new ResponseEntity<>(cli,HttpStatus.OK);
 		}
 		
@@ -70,20 +69,26 @@ public class ClienteResource {
 			System.out.println("Chamou funcao delete cliente");
 			verifyIfclisExists(id);
 			//verificaSeTemContrato(id);
-			Cliente cli = uRepository.findById(id);
-			uRepository.delete(cli);
-			return new ResponseEntity<>(HttpStatus.OK);
+			Cliente cli = clienteService.buscarPorId(id);
+			if (cli == null){
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}else{
+				clienteService.excluir(cli);
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
+
+
 		}
 		
 		@PutMapping(path="Clientes")
 		public ResponseEntity<?> update(@RequestBody Cliente cli){
 			verifyIfclisExists(cli.getId());
-			uRepository.save(cli);
+			clienteService.alterar(cli);
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
 		private void verifyIfclisExists(long id){
-			if(uRepository.findById(id) == null)
+			if(clienteService.buscarPorId(id) == null)
 				throw new ResourceNotFoundException("Cliente não encontrado para o Id: " + id);
 		}
 		

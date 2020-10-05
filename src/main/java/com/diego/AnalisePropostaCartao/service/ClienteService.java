@@ -41,14 +41,8 @@ public class ClienteService {
 	}
 	
 	public Cliente buscarPorId(long id) {
-		List<Cliente> clientes = clienteRepository.findAll();
-		Cliente cli = null;
-		for (int i = 0; i < clientes.size(); i++) {
-			if (clientes.get(i).getId() == id) {
-				cli = clientes.get(i);
-			}
-		}
-		return cli;
+		Cliente cliente = clienteRepository.findById(id);
+		return cliente;
 	}
 		
 	public Cliente alterar(Cliente cliente) {
