@@ -23,11 +23,20 @@ public class ClienteService {
 	ClienteRepository clienteRepository;
 	
 	@Autowired
-	PropostaRepository PropostaRepository;
+	PropostaRepository propostaRepository;
 		
 	//Negocio
 	public Cliente cadastrar(Cliente cliente) {
-		return clienteRepository.save(cliente);
+		Cliente cliNovo = clienteRepository.findByCpf(cliente.getCpf());
+		System.out.println("Chamou funcao Cadastrar cliente");
+		if (cliNovo == null){
+			System.out.println("Não existe cliente com esse CPF");
+			return clienteRepository.save(cliente);
+		}else{
+			System.out.println("Existe cliente com esse CPF");
+			throw new ResourceNotFoundException("Já existe um cliente com esse CPF cadastrado!");
+		}
+
 	}
 	
 	public Collection< Cliente> buscarTodos(){
@@ -35,7 +44,7 @@ public class ClienteService {
 	}
 	
 	public void excluir (Cliente cliente) {
-		System.out.println("Chamou funcao excluir cliente");
+		//System.out.println("Chamou funcao excluir cliente");
 		verificaSeTemContrato(cliente.getId());
 		clienteRepository.delete(cliente);
 	}
@@ -50,7 +59,7 @@ public class ClienteService {
 	}
 	
 	public Proposta buscarPropostasPorIdCliente(long id) {
-		List<Proposta> Propostas = PropostaRepository.findAll();
+		List<Proposta> Propostas = propostaRepository.findAll();
 		Proposta pro = null;
 		for (int i = 0; i < Propostas.size(); i++) {
 			if (Propostas.get(i).getCliente().getId() == id) {
@@ -67,7 +76,6 @@ public class ClienteService {
 		}else {
 			//System.out.println("Cliente possui contrato e não pode ser excluido. Contrato: " + pro.getId());
 			throw new ResourceNotFoundException("Cliente possui contrato e não pode ser excluido. Contrato: " + pro.getId());
-			
 		}
 	}
 	

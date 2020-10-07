@@ -23,6 +23,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	
 	Cliente findById(long id);
 
+	Cliente findByCpf(String cpf);
+
 		
 	
 

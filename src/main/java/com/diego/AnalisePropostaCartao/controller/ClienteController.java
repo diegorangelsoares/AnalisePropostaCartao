@@ -31,7 +31,7 @@ public class ClienteController {
 	@RequestMapping(method = RequestMethod.POST, value="/clientes",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {
 		Cliente clienteCadastrado = clienteService.cadastrar(cliente);
-		return new ResponseEntity<Cliente>(clienteCadastrado, HttpStatus.CREATED);
+		return new ResponseEntity<>(clienteCadastrado, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/clientes",produces = MediaType.APPLICATION_JSON_VALUE)
