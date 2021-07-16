@@ -1,3 +1,5 @@
+#nome desse arquivo original eh: application.properties
+
 #Config para Mysql
 spring.datasource.url= jdbc:mysql://localhost:3309/propostas
 #?useSSL=false
