@@ -48,6 +48,9 @@ public class UsuarioService{
 				usu = usuarios.get(i);
 			}
 		}
+//		ClienteContestacao clienteContestacao =  clienteContestacaoRepository.findById(pk)
+//				.orElseThrow(() -> new ClienteNotFoundException(String.format(
+//						"Não foi encontrado nenhum cliente com o ID e Emissor informado!", pk.getIdClienteCards())));
 		return usu;
 	}
 		
